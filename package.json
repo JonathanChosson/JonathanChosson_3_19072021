@@ -1,0 +1,19 @@
+{
+  "name": "jonathanchosson_3_19072021",
+  "version": "1.0.0",
+  "description": "FishEye",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanChosson/JonathanChosson_3_19072021.git"
+  },
+  "author": "Jonathan Chosson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanChosson/JonathanChosson_3_19072021/issues"
+  },
+  "homepage": "https://github.com/JonathanChosson/JonathanChosson_3_19072021#readme"
+}
