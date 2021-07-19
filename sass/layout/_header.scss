@@ -1,0 +1,41 @@
+.header {
+    width: auto;
+    padding-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    &__img{
+        max-width: 40vw;
+        order: 1;
+    }
+    &__nav{
+        order: 3;
+        text-align: center;
+        padding: 10px;
+        &__ul{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            padding: 0px;
+            &__li{
+                list-style-type: none;
+                margin: 3px;
+                padding: 5px;
+                border: 1px solid rgb(202, 202, 202);
+                border-radius: 15px;
+                color: $primaire_cadre;
+                font-weight: bold;
+                font-size: 0.8rem;
+            }
+        }
+    }
+    &__h1{
+        order: 2;
+        font-size: 1rem;
+        color: $primaire_cadre;
+        padding: auto;
+        margin: 10px;
+        font-weight: normal;
+    }
+}

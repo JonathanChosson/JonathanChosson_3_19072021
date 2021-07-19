@@ -14,4 +14,46 @@ main * {
   padding: 0px;
 }
 
+.header {
+  width: auto;
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__img {
+  max-width: 40vw;
+  order: 1;
+}
+.header__nav {
+  order: 3;
+  text-align: center;
+  padding: 10px;
+}
+.header__nav__ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0px;
+}
+.header__nav__ul__li {
+  list-style-type: none;
+  margin: 3px;
+  padding: 5px;
+  border: 1px solid #cacaca;
+  border-radius: 15px;
+  color: #901C1C;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.header__h1 {
+  order: 2;
+  font-size: 1rem;
+  color: #901C1C;
+  padding: auto;
+  margin: 10px;
+  font-weight: normal;
+}
+
 /*# sourceMappingURL=style.css.map */
