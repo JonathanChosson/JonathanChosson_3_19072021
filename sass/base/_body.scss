@@ -1,15 +1,6 @@
 body{
     margin: 0px;
     padding: 0px;
+    font-family: 'Inter', sans-serif;
 }
 
-main{
-    margin: 0px;
-    padding: 0px;
-    width : auto;
-    overflow: hidden;
-    & * {
-        margin: 0px;
-        padding: 0px;
-    }
-}

@@ -1,17 +1,7 @@
 body {
   margin: 0px;
   padding: 0px;
-}
-
-main {
-  margin: 0px;
-  padding: 0px;
-  width: auto;
-  overflow: hidden;
-}
-main * {
-  margin: 0px;
-  padding: 0px;
+  font-family: "Inter", sans-serif;
 }
 
 .header {
@@ -49,11 +39,77 @@ main * {
 }
 .header__h1 {
   order: 2;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #901C1C;
   padding: auto;
   margin: 10px;
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.main__article {
+  width: 255px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+.main__article__figure {
+  width: 70%;
+  height: 180px;
+  border-radius: 150px;
+  object-fit: cover;
+}
+.main__article__figure__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 150px;
+}
+.main__article__h2 {
+  color: #D3573C;
+  font-size: 2rem;
+  margin: 10px 0px 0px 0px;
+}
+.main__article__p--ville {
+  color: #901C1C;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 5px 0px 0px 0px;
+}
+.main__article__p--dicton {
+  font-size: 0.6rem;
+  font-weight: bold;
+  margin: 5px;
+}
+.main__article__p--tarif {
+  font-size: 0.6rem;
   font-weight: normal;
+  font-style: italic;
+  margin: 0px;
+  color: #858585;
+}
+.main__article__ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0px;
+  margin: 5px;
+}
+.main__article__ul__li {
+  list-style-type: none;
+  margin: 3px;
+  padding: 5px;
+  border: 1px solid #cacaca;
+  border-radius: 15px;
+  color: #901C1C;
+  font-weight: bold;
+  font-size: 0.7rem;
 }
 
 /*# sourceMappingURL=style.css.map */
