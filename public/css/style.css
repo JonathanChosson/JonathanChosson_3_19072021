@@ -35,7 +35,11 @@ body {
   border-radius: 15px;
   color: #901C1C;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+}
+.header__nav__ul__li:hover {
+  background-color: #901C1C;
+  color: white;
 }
 .header__h1 {
   order: 2;
@@ -46,6 +50,18 @@ body {
   font-weight: bold;
 }
 
+@media screen and (min-width: 769px) {
+  .header__img {
+    order: 1;
+  }
+  .header__nav {
+    width: 50%;
+    order: 2;
+  }
+  .header__h1 {
+    order: 3;
+  }
+}
 .main {
   display: flex;
   flex-flow: row wrap;
@@ -110,6 +126,10 @@ body {
   color: #901C1C;
   font-weight: bold;
   font-size: 0.7rem;
+}
+.main__article__ul__li:hover {
+  background-color: #901C1C;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

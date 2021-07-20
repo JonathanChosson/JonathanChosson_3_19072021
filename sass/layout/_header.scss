@@ -26,7 +26,11 @@
                 border-radius: 15px;
                 color: $primaire_cadre;
                 font-weight: bold;
-                font-size: 0.8rem;
+                font-size: 0.7rem;
+                &:hover{
+                    background-color: $primaire_cadre;
+                    color: white;
+                }
             }
         }
     }
@@ -37,5 +41,19 @@
         padding: auto;
         margin: 10px;
         font-weight: bold;
+    }
+}
+@media screen and(min-width: 769px) {
+    .header{
+        &__img{
+            order: 1;
+        }
+        &__nav{
+            width: 50%;
+            order: 2;
+        }
+        &__h1{
+            order: 3;
+        }
     }
 }

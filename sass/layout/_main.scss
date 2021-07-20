@@ -61,6 +61,10 @@
                 color: $primaire_cadre;
                 font-weight: bold;
                 font-size: 0.7rem;
+                &:hover{
+                    background-color: $primaire_cadre;
+                    color: white;
+                }
             }
         }
     }
