@@ -75,10 +75,12 @@
 
 @media screen and(min-width: 769px) {
     .main{
+        justify-content: space-around;
         &__article{
             width: 30%;
             &__figure{
-                height: 220px;
+                height: 180px;
+                width: 180px;
             }
         }
     }

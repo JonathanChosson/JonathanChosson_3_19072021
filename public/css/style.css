@@ -139,11 +139,15 @@ body {
 }
 
 @media screen and (min-width: 769px) {
+  .main {
+    justify-content: space-around;
+  }
   .main__article {
     width: 30%;
   }
   .main__article__figure {
-    height: 220px;
+    height: 180px;
+    width: 180px;
   }
 }
 
