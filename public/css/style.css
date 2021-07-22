@@ -117,14 +117,16 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
   padding: 0px;
   margin: 5px;
 }
 .main__article__ul__a {
   text-decoration: none;
+  display: block;
 }
 .main__article__ul__li {
-  list-style-type: none;
+  display: block;
   margin: 3px;
   padding: 5px;
   border: 1px solid #cacaca;
