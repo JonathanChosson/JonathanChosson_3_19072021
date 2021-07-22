@@ -18,6 +18,9 @@
             flex-flow: row wrap;
             justify-content: center;
             padding: 0px;
+            &__a{
+                text-decoration: none;
+            }
             &__li{
                 list-style-type: none;
                 margin: 3px;

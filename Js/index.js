@@ -5,8 +5,19 @@ function listeArtistes() {
     fetch('../FishEyeData.json').then((response) => response.json())
     .then((data) =>{
         main[0].innerHTML = "";
-        console.log(data.photographers);
-        data.photographers.forEach(element => {
+        let photographers = [];
+        if (window.location.search.split("=").length > 1){
+            let tag = window.location.search.split("=")[1];
+            data.photographers.forEach(photographer => {
+                if(photographer.tags.indexOf(tag) === -1){
+                }else{
+                    photographers.push(photographer)
+                }
+            });
+        }else{
+            photographers = data.photographers;
+        }
+        photographers.forEach(element => {
             let ficheArtiste = document.createElement('article');
             ficheArtiste.classList.add('main__article');
             ficheArtiste.innerHTML = `
