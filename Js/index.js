@@ -11,7 +11,7 @@ function listeArtistes() {
             ficheArtiste.classList.add('main__article');
             ficheArtiste.innerHTML = `
                 <figure class="main__article__figure">
-                    <img class="main__article__figure__img" alt="" title="${element.name}" src="./public/images/Mimi/Portrait_Nora.jpg" />
+                    <img class="main__article__figure__img" alt="" title="${element.name}" src="./public/images/photographers_ID_photos/${element.portrait}" />
                 </figure>
                 <h2 class="main__article__h2">
                     ${element.name}
