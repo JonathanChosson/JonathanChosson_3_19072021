@@ -1,11 +1,14 @@
 //Eléments du DOM
 let main = document.getElementsByClassName('main');
+
 //Fonction
+//charge la liste des artistes
 function listeArtistes() {
     fetch('../FishEyeData.json').then((response) => response.json())
     .then((data) =>{
         main[0].innerHTML = "";
         let photographers = [];
+        //verifie qu'un filtre est appliqué et rempli en fonction photographers[]
         if (window.location.search.split("=").length > 1){
             let tag = window.location.search.split("=")[1];
             data.photographers.forEach(photographer => {
@@ -17,6 +20,7 @@ function listeArtistes() {
         }else{
             photographers = data.photographers;
         }
+        //affiche une fiche par artiste présents dans photograpers[]
         photographers.forEach(element => {
             let ficheArtiste = document.createElement('article');
             ficheArtiste.classList.add('main__article');
@@ -37,16 +41,17 @@ function listeArtistes() {
                     ${element.price}€/jour
                 </p>
             `;
-            // <div class="main__article__ul">
-            //     <span class="main__article__ul__li">#${element.tags}</span>
-            // </div>
             let div = document.createElement('div');
             div.classList.add('main__article__ul');
             element.tags.forEach(tag => {
+                let a = document.createElement('a');
+                a.classList.add('main__article__ul__a');
+                a.setAttribute('href', `./index.html?filter=${tag}`)
                 let span = document.createElement('span');
                 span.classList.add('main__article__ul__li');
                 span.innerHTML = `#${tag}`;
-                div.append(span);
+                a.append(span);
+                div.append(a);
             });
             ficheArtiste.append(div);
             main[0].append(ficheArtiste);
