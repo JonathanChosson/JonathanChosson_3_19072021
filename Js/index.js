@@ -4,7 +4,7 @@ let main = document.getElementsByClassName('main');
 //Fonction
 //charge la liste des artistes
 function listeArtistes() {
-    fetch('../FishEyeData.json').then((response) => response.json())
+    fetch('./FishEyeData.json').then((response) => response.json())
     .then((data) =>{
         main[0].innerHTML = "";
         let photographers = [];
