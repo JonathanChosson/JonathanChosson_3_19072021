@@ -152,5 +152,25 @@ body {
     width: 180px;
   }
 }
+.topButton {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.topButton__button {
+  display: none;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  background-color: #D3573C;
+  font-size: 1rem;
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=style.css.map */
