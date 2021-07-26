@@ -25,13 +25,16 @@ function listeArtistes() {
         photographers.forEach(element => {
             let ficheArtiste = document.createElement('article');
             ficheArtiste.classList.add('main__article');
+            console.log(element);
             ficheArtiste.innerHTML = `
-                <figure class="main__article__figure">
-                    <img class="main__article__figure__img" alt="" title="${element.name}" src="./public/images/profil/${element.portrait}" />
-                </figure>
-                <h2 class="main__article__h2">
-                    ${element.name}
-                </h2>
+                <a class="main__article__a" href="./photographers-page.html?id=${element.id}">
+                    <figure class="main__article__figure">
+                        <img class="main__article__figure__img" alt="" title="${element.name}" src="./public/images/profil/${element.portrait}" />
+                    </figure>
+                    <h2 class="main__article__h2">
+                        ${element.name}
+                    </h2>
+                </a>
                 <p class="main__article__p--ville">
                     ${element.city}, ${element.country}
                 </p>

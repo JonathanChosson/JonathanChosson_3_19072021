@@ -139,6 +139,13 @@ body {
   background-color: #901C1C;
   color: white;
 }
+.main__article__a {
+  text-decoration: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
 
 @media screen and (min-width: 769px) {
   .main {
