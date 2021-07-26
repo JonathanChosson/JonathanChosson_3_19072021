@@ -1,0 +1,78 @@
+.photographers{
+    &__header{
+        width: 100%;
+        padding-top: 20px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items:flex-start;
+        justify-content: space-between;
+        &__img{
+            max-width: 45%;
+        }
+        &__a{
+            width: 100%;
+            order: 1 100%;
+        }
+        &__div{
+            &__h1{
+                color: $primaire_texte;
+                font-size: 1.8rem;
+                margin: 10px 0px 0px 0px;
+                margin-left: 15px;
+            }
+            &__p{
+                &--ville{
+                    color: $primaire_cadre;
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                    margin: 5px 0px 0px 15px;
+                }
+                &--dicton{
+                    font-size: 0.6rem;
+                    font-weight: bold;
+                    margin: 5px 0px 0px 15px;
+    
+                }
+            }
+            &__ul{
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 0px;
+                margin: 5px 0px 0px 10px;
+                &__a{
+                    text-decoration: none;
+                    display: block;
+                }
+                &__li{
+                    display: block;
+                    margin: 3px;
+                    padding: 5px;
+                    border: 1px solid rgb(202, 202, 202);
+                    border-radius: 15px;
+                    color: $primaire_cadre;
+                    font-weight: bold;
+                    font-size: 0.7rem;
+                    &:hover{
+                        background-color: $primaire_cadre;
+                        color: white;
+                    }
+                }
+            }
+        }
+        &__figure{
+            height: 100px;
+            width: 100px;
+            border-radius: 150px;
+            object-fit: cover;
+            margin: 20px;
+            &__img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                border-radius: 150px;
+            }
+        }
+    }
+}

@@ -159,6 +159,78 @@ body {
     width: 180px;
   }
 }
+.photographers__header {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.photographers__header__img {
+  max-width: 45%;
+}
+.photographers__header__a {
+  width: 100%;
+  order: 1 100%;
+}
+.photographers__header__div__h1 {
+  color: #D3573C;
+  font-size: 1.8rem;
+  margin: 10px 0px 0px 0px;
+  margin-left: 15px;
+}
+.photographers__header__div__p--ville {
+  color: #901C1C;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 5px 0px 0px 15px;
+}
+.photographers__header__div__p--dicton {
+  font-size: 0.6rem;
+  font-weight: bold;
+  margin: 5px 0px 0px 15px;
+}
+.photographers__header__div__ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px;
+  margin: 5px 0px 0px 10px;
+}
+.photographers__header__div__ul__a {
+  text-decoration: none;
+  display: block;
+}
+.photographers__header__div__ul__li {
+  display: block;
+  margin: 3px;
+  padding: 5px;
+  border: 1px solid #cacaca;
+  border-radius: 15px;
+  color: #901C1C;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+.photographers__header__div__ul__li:hover {
+  background-color: #901C1C;
+  color: white;
+}
+.photographers__header__figure {
+  height: 100px;
+  width: 100px;
+  border-radius: 150px;
+  object-fit: cover;
+  margin: 20px;
+}
+.photographers__header__figure__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 150px;
+}
+
 .topButton {
   position: fixed;
   width: 100%;
@@ -176,6 +248,30 @@ body {
   text-align: center;
   cursor: pointer;
   background-color: #D3573C;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.contactButton {
+  position: fixed;
+  bottom: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contactButton__button {
+  display: block;
+  height: 35px;
+  padding: 0px 30px 0px 30px;
+  letter-spacing: 0.1rem;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  background-color: #901C1C;
+  color: white;
   font-size: 1rem;
   font-weight: bold;
 }
