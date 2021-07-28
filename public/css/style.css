@@ -238,6 +238,9 @@ body {
   border-radius: 150px;
 }
 
+.photographers__article {
+  margin-bottom: 70px;
+}
 .photographers__article__div {
   padding: 20px;
   display: flex;
