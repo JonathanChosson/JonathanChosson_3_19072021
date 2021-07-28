@@ -1,8 +1,8 @@
 //Eléments du DOM
 let main = document.getElementsByClassName('main');
 let topBtn = document.getElementById('topBtn');
-//Fonction
 
+//Fonction
 //charge la liste des artistes
 function listeArtistes() {
     fetch('./FishEyeData.json').then((response) => response.json())
@@ -21,7 +21,7 @@ function listeArtistes() {
         }else{
             photographers = data.photographers;
         }
-        //affiche une fiche par artiste présents dans photograpers[]
+        //affiche une fiche par artiste présents dans photographers[]
         photographers.forEach(element => {
             let ficheArtiste = document.createElement('article');
             ficheArtiste.classList.add('main__article');

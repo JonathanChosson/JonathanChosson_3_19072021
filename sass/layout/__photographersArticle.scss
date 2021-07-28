@@ -1,0 +1,35 @@
+.photographers{
+    &__article{
+        &__div{
+            padding: 20px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            &__figure{
+                width: 100%;
+                height: 45vw;
+                margin: 0px;
+                &__img{
+                    width: 100%;
+                    height: 45vw;
+                    object-fit: cover;
+                    border-radius: 5px;
+                }
+            }
+            &__p{
+                &--titre{
+                    margin: 10px 0px 0px 0px;
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                    color: $primaire_cadre;
+                }
+                &--likes{
+                    margin: 10px 0px 0Px 0px;
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                    color: $primaire_cadre;
+                }
+            }
+        }
+    }
+}
