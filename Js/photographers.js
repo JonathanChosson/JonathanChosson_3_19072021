@@ -23,7 +23,7 @@ function afficheArtiste(){
                         a.classList.add('main__article__ul__a');
                         a.setAttribute('href', `./index.html?filter=${tag}`)
                         let span = document.createElement('span');
-                        span.classList.add('main__article__ul__li');
+                        span.classList.add('photographers__header__div__ul__li');
                         span.innerHTML = `#${tag}`;
                         a.append(span);
                         div.append(a);

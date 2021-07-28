@@ -167,6 +167,14 @@ body {
   align-items: flex-start;
   justify-content: space-between;
 }
+.photographers__header--container {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
 .photographers__header__img {
   max-width: 45%;
 }
@@ -238,6 +246,46 @@ body {
   border-radius: 150px;
 }
 
+@media screen and (min-width: 769px) {
+  .photographers__header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-color: #FAFAFA;
+    width: auto;
+    padding: 0px;
+    margin: 0px 30px 0px 30px;
+  }
+  .photographers__header__a {
+    background-color: white;
+    padding-top: 20px;
+  }
+  .photographers__header__div {
+    order: 2;
+    width: auto;
+    height: 160px;
+    margin-left: 30px;
+  }
+  .photographers__header__div__h1 {
+    font-size: 2rem;
+  }
+  .photographers__header__div__p--ville {
+    font-size: 1rem;
+  }
+  .photographers__header__div__p--dicton {
+    font-size: 1rem;
+  }
+  .photographers__header__div__ul__li {
+    font-size: 0.9rem;
+  }
+  .photographers__header__figure {
+    order: 4;
+    height: 120px;
+    width: 120px;
+    margin-right: 30px;
+  }
+}
 .photographers__article {
   margin-bottom: 70px;
 }
@@ -314,6 +362,25 @@ body {
   color: white;
   font-size: 1rem;
   font-weight: bold;
+}
+
+@media screen and (min-width: 769px) {
+  .contactButton {
+    position: static;
+    order: 3;
+    flex-grow: 2;
+    height: 140px;
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px 30px 0px 30px;
+  }
+  .contactButton__button {
+    height: 50px;
+    padding: 0px 5px 0px 5px;
+    font-weight: normal;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

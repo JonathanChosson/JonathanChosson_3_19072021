@@ -21,3 +21,22 @@
         font-weight: bold;
     }
 }
+
+@media screen and(min-width: 769px) {
+    .contactButton{
+        position: static;
+        order:3;
+        flex-grow: 2;
+        height: 140px;
+        width: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 20px 30px 0px 30px;
+        &__button{
+            height: 50px;
+            padding: 0px 5px 0px 5px;
+            font-weight: normal;
+        }
+    }
+}
