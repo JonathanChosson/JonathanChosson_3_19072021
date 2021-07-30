@@ -1,6 +1,7 @@
 //Elements du DOM
 let artiste = document.getElementsByClassName('photographers__header');
 let oeuvre = document.getElementsByClassName('photographers__article');
+let select = document.getElementsByClassName('photographers__article--filtre__select');
 //Fonction
 function afficheArtiste(){
     if (window.location.search.split("=").length > 1){
@@ -51,46 +52,109 @@ function mediaArtiste() {
                     mediaArtiste.push(media)
                 }
             });
-            console.log(mediaArtiste);
-            console.log(oeuvre[0].children[0]);
-            oeuvre[0].removeChild(oeuvre[0].children[0]);
-            for(media of mediaArtiste){
-                console.log(media);
-                let div = document.createElement('div');
-                div.classList.add('photographers__article__div');
-                let figure = document.createElement('figure');
-                figure.classList.add('photographers__article__div__figure');
-                let img = document.createElement('img');
-                img.classList.add('photographers__article__div__figure__img');
-                let video = document.createElement('video');
-                video.classList.add('photographers__article__div__figure');
-                video.setAttribute('controls', "");
-                if(media.image !=undefined){
-                    img.setAttribute('src',`./public/images/${media.photographerId}/${media.image}`);
-                    figure.append(img);
-                    div.append(figure);
-                }else if(media.video !=undefined){
-                    let sourceVideo = document.createElement('source');
-                    sourceVideo.setAttribute('src',`./public/images/${media.photographerId}/${media.video}`);
-                    sourceVideo.setAttribute('type', "video/mp4");
-                    video.append(sourceVideo);
-                    div.append(video);
+            //défi Marion 
+            // Je crée une variable de tri
+            let trier = "";
+            // j'écoute mon select pour voir si il y as un changement et modifie ma variable "trier" en fonction
+            select[0].addEventListener('change', (event)=>{
+                trier = event.target.value;
+                // J'applique mon tri uniquement si besoin
+                if(trier === "titre"){
+                    //j'applique ma fonction de tri
+                    mediaArtiste.sort(compareTitre);
+                    //j'apelle ma fonction qui rempli les media une fois le tableau trié 
+                    rempliMedia(mediaArtiste);
+                }else if(trier === "popularite"){
+                    //j'applique ma fonction de tri
+                    mediaArtiste.sort(compareLikes);
+                    //j'apelle ma fonction qui rempli les media une fois le tableau trié 
+                    rempliMedia(mediaArtiste);
+                }else if(trier === "date"){
+                    //j'applique ma fonction de tri
+                    mediaArtiste.sort(compareDate);
+                    //j'apelle ma fonction qui rempli les media une fois le tableau trié 
+                    rempliMedia(mediaArtiste);
                 }
-                let pTitre = document.createElement('p');
-                pTitre.classList.add('photographers__article__div__p--titre');
-                pTitre.innerHTML =`${media.title}`;
-                pLikes = document.createElement('p');
-                pLikes.classList.add('photographers__article__div__p--likes');
-                pLikes.innerHTML = `${media.likes} <i class="fas fa-heart"></i>`;
-                div.append(pTitre);
-                div.append(pLikes);
-                oeuvre[0].append(div);
-            }
+            })
+            //j'ai du créer une fonction qui rempli les medias pour y afaire appel a volonté
+            rempliMedia(mediaArtiste);
+            //fin du défi
         }).catch(erreur => console.log(erreur));
     }else{
         document.location.href="./index.html"; 
     }
 }
+//fonction rempli les medias
+function rempliMedia(mediaArtiste){
+    oeuvre[0].innerHTML ="";
+    for(media of mediaArtiste){
+        console.log(media);
+        let div = document.createElement('div');
+        div.classList.add('photographers__article__div');
+        let figure = document.createElement('figure');
+        figure.classList.add('photographers__article__div__figure');
+        let img = document.createElement('img');
+        img.classList.add('photographers__article__div__figure__img');
+        let video = document.createElement('video');
+        video.classList.add('photographers__article__div__figure');
+        video.setAttribute('controls', "");
+        if(media.image !=undefined){
+            img.setAttribute('src',`./public/images/${media.photographerId}/${media.image}`);
+            figure.append(img);
+            div.append(figure);
+        }else if(media.video !=undefined){
+            let sourceVideo = document.createElement('source');
+            sourceVideo.classList.add('photographers__article__div__figure__source');
+            sourceVideo.setAttribute('src',`./public/images/${media.photographerId}/${media.video}`);
+            sourceVideo.setAttribute('type', "video/mp4");
+            video.append(sourceVideo);
+            div.append(video);
+        }
+        let pTitre = document.createElement('p');
+        pTitre.classList.add('photographers__article__div__p--titre');
+        pTitre.innerHTML =`${media.title}`;
+        pLikes = document.createElement('p');
+        pLikes.classList.add('photographers__article__div__p--likes');
+        pLikes.innerHTML = `${media.likes} <i class="fas fa-heart"></i>`;
+        div.append(pTitre);
+        div.append(pLikes);
+        oeuvre[0].append(div);
+    }
+}
+
+//trier par titre
+function compareTitre(a,b){
+    if(a.title < b.title){
+        return -1;
+    };
+    if(a.title > b.title){
+        return 1;
+    }
+    return 0;
+}
+
+//trier par popularite
+function compareLikes(a,b){
+    if(a.likes < b.likes){
+        return 1;
+    };
+    if(a.likes > b.likes){
+        return -1;
+    }
+    return 0;
+}
+
+//trier par date
+function compareDate(a,b){
+    if(a.date < b.date){
+        return -1;
+    };
+    if(a.date > b.date){
+        return 1;
+    }
+    return 0;
+}
+
 //app
 afficheArtiste();
 mediaArtiste();
