@@ -1,5 +1,6 @@
 //Elements du DOM
 let artiste = document.getElementsByClassName('photographers__header');
+let footer = document.getElementsByClassName('photographers__footer');
 let oeuvre = document.getElementsByClassName('photographers__article');
 let select = document.getElementsByClassName('photographers__article--filtre__select');
 //Fonction
@@ -12,6 +13,7 @@ function afficheArtiste(){
             data.photographers.forEach(photographer => {
                 if(photographer.id == artisteId){
                     ficheArtiste.push(photographer)
+                    console.log(ficheArtiste[0]);
                     artiste[0].childNodes[3].childNodes[1].innerHTML = ficheArtiste[0].name;
                     artiste[0].childNodes[3].childNodes[3].innerHTML = ficheArtiste[0].city + ", " +ficheArtiste[0].country;
                     artiste[0].childNodes[3].childNodes[5].innerHTML = ficheArtiste[0].tagline;
@@ -30,6 +32,14 @@ function afficheArtiste(){
                         div.append(a);
                     });
                     artiste[0].childNodes[3].append(div);
+                    console.log(footer[0]);
+                    footer[0].innerHTML = "";
+                    let p = document.createElement('p');
+                    p.innerHTML = `297 081 <i class="fas fa-heart"></i>`;
+                    footer[0].append(p);
+                    let pPrice = document.createElement('p');
+                    pPrice.innerHTML = `${ficheArtiste[0].price}/jour`;
+                    footer[0].append(pPrice);
                 }
             });
         }).catch(erreur => console.log(erreur));
@@ -95,6 +105,7 @@ function rempliMedia(mediaArtiste){
         figure.classList.add('photographers__article__div__figure');
         let img = document.createElement('img');
         img.classList.add('photographers__article__div__figure__img');
+        img.classList.add('modal-btn');
         let video = document.createElement('video');
         video.classList.add('photographers__article__div__figure');
         video.setAttribute('controls', "");
@@ -120,6 +131,7 @@ function rempliMedia(mediaArtiste){
         div.append(pLikes);
         oeuvre[0].append(div);
     }
+    ecouteModal();
 }
 
 //trier par titre

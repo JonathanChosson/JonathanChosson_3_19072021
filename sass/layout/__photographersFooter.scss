@@ -1,0 +1,30 @@
+.photographers{
+    &__footer{
+        display: none;
+    }
+}
+
+@media screen and(min-width: 769px) {
+    .photographers{
+        &__footer{
+            display: block;
+            position: fixed;
+            right: 5%;
+            bottom: -2%;
+            background: #DB8876;
+            border-radius: 5px;
+            width: 376px;
+            height: 89px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            & p{
+                font-family: DM Sans;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 31px;
+            }
+        }
+    }
+}
