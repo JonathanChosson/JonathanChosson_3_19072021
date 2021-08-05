@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 function ecouteModal() {
     // DOM Elements
     const modalbg = document.querySelector(".bground");

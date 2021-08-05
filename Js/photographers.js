@@ -97,7 +97,7 @@ function mediaArtiste() {
 //fonction rempli les medias
 function rempliMedia(mediaArtiste){
     oeuvre[0].innerHTML ="";
-    for(media of mediaArtiste){
+    for(let media of mediaArtiste){
         console.log(media);
         let div = document.createElement('div');
         div.classList.add('photographers__article__div');
@@ -124,13 +124,14 @@ function rempliMedia(mediaArtiste){
         let pTitre = document.createElement('p');
         pTitre.classList.add('photographers__article__div__p--titre');
         pTitre.innerHTML =`${media.title}`;
-        pLikes = document.createElement('p');
+        let pLikes = document.createElement('p');
         pLikes.classList.add('photographers__article__div__p--likes');
         pLikes.innerHTML = `${media.likes} <i class="fas fa-heart"></i>`;
         div.append(pTitre);
         div.append(pLikes);
         oeuvre[0].append(div);
     }
+    // eslint-disable-next-line no-undef
     ecouteModal();
 }
 
@@ -138,7 +139,7 @@ function rempliMedia(mediaArtiste){
 function compareTitre(a,b){
     if(a.title < b.title){
         return -1;
-    };
+    }
     if(a.title > b.title){
         return 1;
     }
@@ -149,7 +150,7 @@ function compareTitre(a,b){
 function compareLikes(a,b){
     if(a.likes < b.likes){
         return 1;
-    };
+    }
     if(a.likes > b.likes){
         return -1;
     }
@@ -160,7 +161,7 @@ function compareLikes(a,b){
 function compareDate(a,b){
     if(a.date < b.date){
         return -1;
-    };
+    }
     if(a.date > b.date){
         return 1;
     }

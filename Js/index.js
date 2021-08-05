@@ -1,6 +1,6 @@
 //Eléments du DOM
 let main = document.getElementsByClassName('main');
-let topBtn = document.getElementById('topBtn');
+let topBtn = document.getElementById('topBtn'); 
 
 //Fonction
 //charge la liste des artistes
@@ -14,6 +14,7 @@ function listeArtistes() {
             let tag = window.location.search.split("=")[1];
             data.photographers.forEach(photographer => {
                 if(photographer.tags.indexOf(tag) === -1){
+                    console.log("");
                 }else{
                     photographers.push(photographer)
                 }
@@ -74,6 +75,7 @@ function scrollFunction() {
     }
 }
 
+// eslint-disable-next-line no-unused-vars
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
