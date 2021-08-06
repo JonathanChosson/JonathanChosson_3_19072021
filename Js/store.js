@@ -47,18 +47,11 @@ function creerPhotographe(nom, ville, id, portrait,prix,dicton, tags){
 //fonction filtre
 //applique un filtre
 function filtre(){
-    let tableauFiltre = [];
-    //verifie qu'un filtre est appliqué et rempli en fonction photographers[]
+    //verifie qu'un filtre est appliqué et rempli en fonction tableauPhotographe[]
         if (window.location.search.split("=").length > 1){
             let tag = window.location.search.split("=")[1];
-            tableauPhotographe.forEach(photographer => {
-                if(photographer.tags.indexOf(tag) !== -1){
-                    tableauFiltre.push(photographer)
-                }
-            });
-            tableauPhotographe = tableauFiltre;
+            tableauPhotographe = tableauPhotographe.filter(photographe => photographe.tags.filter(tagPhotographe => tagPhotographe == tag).length > 0)
         }
-    console.log(tableauPhotographe);
 }
 
 //app
