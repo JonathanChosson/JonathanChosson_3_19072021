@@ -4,7 +4,7 @@ function ecouteModal() {
     const modalbg = document.querySelector(".bground");
     const modalBtn = document.querySelectorAll(".modal-btn");
     const closeBtn = document.querySelectorAll(".close");
-    console.log(modalBtn);
+
 
     // launch modal event
     modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));

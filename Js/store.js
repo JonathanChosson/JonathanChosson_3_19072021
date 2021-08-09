@@ -1,21 +1,21 @@
 let tableauPhotographe = [];
 
 //fetch le fichier et ajoute les données au tableauPhotographe
-function listeArtistes() {
+function arrayArtistes() {
     fetch('./FishEyeData.json').then((response) => response.json())
     .then((data) =>{
         // console.log(data);
         enregistrerPhotographes(data.photographers);
         enregistrerMedia(tableauPhotographe, data.media);
-        filtre();
         console.log(tableauPhotographe);
+        page();
     }).catch(erreur => console.log(erreur));
 }
 
 //utilise le constructeur pour instancier les photographes
 function enregistrerPhotographes(dataFetch) {
     for(let photographe of dataFetch){
-        tableauPhotographe.push(new creerPhotographe(photographe.name, photographe.country, photographe.id, photographe.portrait, photographe.price, photographe.tagline, photographe.tags));
+        tableauPhotographe.push(new Photographe(photographe.name, photographe.city, photographe.country, photographe.id, photographe.portrait, photographe.price, photographe.tagline, photographe.tags));
     }
 }
 
@@ -31,16 +31,17 @@ function enregistrerMedia(tableau, mediaFetch){
 }
 
 //Factory method constructeur d'objet
-function creerPhotographe(nom, ville, id, portrait,prix,dicton, tags){
+function Photographe(nom, ville, pays, id, portrait,prix,dicton, tags){
     return{
         nom,
         ville,
+        pays,
         id,
         portrait,
         prix,
         dicton,
         tags,
-        media : [],
+        media : []
     }
 }
 
@@ -54,5 +55,18 @@ function filtre(){
         }
 }
 
+//appel à la fonction selon la page
+function page(){
+    let nomPage = window.location.pathname.split("/")[1];
+    if(nomPage === "index.html"){
+        filtre();
+        // eslint-disable-next-line no-undef
+        listeArtistes();
+    }else if(nomPage === "photographers-page.html"){
+        // eslint-disable-next-line no-undef
+        afficheArtiste();
+    }
+}
+
 //app
-listeArtistes();
+arrayArtistes();
