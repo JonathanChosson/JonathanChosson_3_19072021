@@ -1,4 +1,4 @@
-
+import {arrayArtistes, tableauPhotographe} from './store.js';
 //Eléments du DOM
 let main = document.getElementsByClassName('main');
 let topBtn = document.getElementById('topBtn');
@@ -6,11 +6,9 @@ let topBtn = document.getElementById('topBtn');
 //Fonction
 //charge la liste des artistes
 function listeArtistes() {
-    // eslint-disable-next-line no-undef
     console.log(tableauPhotographe);
     main[0].innerHTML = "";
     //affiche une fiche par artiste présents dans photographers[]
-    // eslint-disable-next-line no-undef
     tableauPhotographe.forEach(element => {
         let ficheArtiste = document.createElement('article');
         ficheArtiste.classList.add('main__article');
@@ -70,5 +68,9 @@ function topFunction() {
 
 
 //App
-listeArtistes();
+arrayArtistes(listeArtistes);
+
+
+
+
 console.log(main);

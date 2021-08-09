@@ -1,14 +1,14 @@
-let tableauPhotographe = [];
+export let tableauPhotographe = [];
 
 //fetch le fichier et ajoute les données au tableauPhotographe
-function arrayArtistes() {
+export function arrayArtistes(lanceFonction) {
     fetch('./FishEyeData.json').then((response) => response.json())
     .then((data) =>{
         // console.log(data);
         enregistrerPhotographes(data.photographers);
         enregistrerMedia(tableauPhotographe, data.media);
         console.log(tableauPhotographe);
-        page();
+        page(lanceFonction);
     }).catch(erreur => console.log(erreur));
 }
 
@@ -47,7 +47,7 @@ function Photographe(nom, ville, pays, id, portrait,prix,dicton, tags){
 
 //fonction filtre
 //applique un filtre
-function filtre(){
+export function filtre(){
     //verifie qu'un filtre est appliqué et rempli en fonction tableauPhotographe[]
         if (window.location.search.split("=").length > 1){
             let tag = window.location.search.split("=")[1];
@@ -56,17 +56,15 @@ function filtre(){
 }
 
 //appel à la fonction selon la page
-function page(){
+function page(lanceFonction){
     let nomPage = window.location.pathname.split("/")[1];
     if(nomPage === "index.html"){
         filtre();
-        // eslint-disable-next-line no-undef
-        listeArtistes();
+        lanceFonction();
     }else if(nomPage === "photographers-page.html"){
-        // eslint-disable-next-line no-undef
-        afficheArtiste();
+        lanceFonction();
     }
 }
 
 //app
-arrayArtistes();
+// arrayArtistes();

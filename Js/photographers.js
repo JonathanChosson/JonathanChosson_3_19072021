@@ -1,3 +1,6 @@
+//import des modules
+import {arrayArtistes, tableauPhotographe} from './store.js';
+
 //Elements du DOM
 let artiste = document.getElementsByClassName('photographers__header');
 let footer = document.getElementsByClassName('photographers__footer');
@@ -5,14 +8,11 @@ let oeuvre = document.getElementsByClassName('photographers__article');
 let select = document.getElementsByClassName('photographers__article--filtre__select');
 
 //Fonction
-// eslint-disable-next-line no-unused-vars
 function afficheArtiste(){
     if (window.location.search.split("=").length > 1){
         let artisteId = window.location.search.split("=")[1];
         console.log(artisteId);
-        // eslint-disable-next-line no-undef
         console.log(tableauPhotographe);
-        // eslint-disable-next-line no-undef
         let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
         console.log(ficheArtiste);
         
@@ -45,6 +45,7 @@ function afficheArtiste(){
     }else{
         document.location.href="./index.html"; 
     }
+    mediaArtiste();
 }
 //Affiche les médias de l'artiste
 function mediaArtiste() {
@@ -168,5 +169,6 @@ function compareDate(a,b){
 }
 
 //app
+arrayArtistes(afficheArtiste);
 // afficheArtiste();
 // mediaArtiste();
