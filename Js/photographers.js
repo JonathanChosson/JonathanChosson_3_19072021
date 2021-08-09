@@ -1,5 +1,6 @@
 //import des modules
 import {arrayArtistes, tableauPhotographe} from './store.js';
+import {ecouteModal} from './modal.js';
 
 //Elements du DOM
 let artiste = document.getElementsByClassName('photographers__header');
@@ -52,44 +53,37 @@ function mediaArtiste() {
     if (window.location.search.split("=").length > 1){
         console.log('medias');
         let artisteId = window.location.search.split("=")[1];
-        let mediaArtiste = [];
         console.log(artisteId);
-        fetch('./FishEyeData.json').then((response) => response.json())
-        .then((data) =>{
-            console.log(data.media);
-            data.media.forEach(media => {
-                if(media.photographerId == artisteId){
-                    mediaArtiste.push(media)
-                }
-            });
-            //défi Marion 
-            // Je crée une variable de tri
-            let trier = "";
-            // j'écoute mon select pour voir si il y as un changement et modifie ma variable "trier" en fonction
-            select[0].addEventListener('change', (event)=>{
-                trier = event.target.value;
-                // J'applique mon tri uniquement si besoin
-                if(trier === "titre"){
-                    //j'applique ma fonction de tri
-                    mediaArtiste.sort(compareTitre);
-                    //j'apelle ma fonction qui rempli les media une fois le tableau trié 
-                    rempliMedia(mediaArtiste);
-                }else if(trier === "popularite"){
-                    //j'applique ma fonction de tri
-                    mediaArtiste.sort(compareLikes);
-                    //j'apelle ma fonction qui rempli les media une fois le tableau trié 
-                    rempliMedia(mediaArtiste);
-                }else if(trier === "date"){
-                    //j'applique ma fonction de tri
-                    mediaArtiste.sort(compareDate);
-                    //j'apelle ma fonction qui rempli les media une fois le tableau trié 
-                    rempliMedia(mediaArtiste);
-                }
-            })
-            //j'ai du créer une fonction qui rempli les medias pour y afaire appel a volonté
-            rempliMedia(mediaArtiste);
-            //fin du défi
-        }).catch(erreur => console.log(erreur));
+        let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
+        console.log(ficheArtiste);
+        let mediaArtiste = ficheArtiste[0].media
+        //défi Marion 
+        // Je crée une variable de tri
+        let trier = "";
+        // j'écoute mon select pour voir si il y as un changement et modifie ma variable "trier" en fonction
+        select[0].addEventListener('change', (event)=>{
+            trier = event.target.value;
+            // J'applique mon tri uniquement si besoin
+            if(trier === "titre"){
+                //j'applique ma fonction de tri
+                mediaArtiste.sort(compareTitre);
+                //j'apelle ma fonction qui rempli les media une fois le tableau trié 
+                rempliMedia(mediaArtiste);
+            }else if(trier === "popularite"){
+                //j'applique ma fonction de tri
+                mediaArtiste.sort(compareLikes);
+                //j'apelle ma fonction qui rempli les media une fois le tableau trié 
+                rempliMedia(mediaArtiste);
+            }else if(trier === "date"){
+                //j'applique ma fonction de tri
+                mediaArtiste.sort(compareDate);
+                //j'apelle ma fonction qui rempli les media une fois le tableau trié 
+                rempliMedia(mediaArtiste);
+            }
+        })
+        //j'ai du créer une fonction qui rempli les medias pour y afaire appel a volonté
+        rempliMedia(mediaArtiste);
+        //fin du défi
     }else{
         document.location.href="./index.html"; 
     }
@@ -131,7 +125,6 @@ function rempliMedia(mediaArtiste){
         div.append(pLikes);
         oeuvre[0].append(div);
     }
-    // eslint-disable-next-line no-undef
     ecouteModal();
 }
 
@@ -170,5 +163,4 @@ function compareDate(a,b){
 
 //app
 arrayArtistes(afficheArtiste);
-// afficheArtiste();
-// mediaArtiste();
+

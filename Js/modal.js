@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-function ecouteModal() {
+
+export function ecouteModal() {
     // DOM Elements
     const modalbg = document.querySelector(".bground");
     const modalBtn = document.querySelectorAll(".modal-btn");
