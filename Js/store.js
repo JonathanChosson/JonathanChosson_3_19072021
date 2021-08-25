@@ -48,7 +48,7 @@ function Photographe(nom, ville, pays, id, portrait,prix,dicton, tags){
 //fonction filtre
 //applique un filtre
 export function filtre(){
-    //verifie qu'un filtre est appliqué et rempli en fonction tableauPhotographe[]
+    //verifie qu'un filtre est appliqué et rempli en fonction tableauPhotographe[]-- //Vérifier si existe ou non plutôt que length //
         if (window.location.search.split("=").length > 1){
             let tag = window.location.search.split("=")[1];
             tableauPhotographe = tableauPhotographe.filter(photographe => photographe.tags.filter(tagPhotographe => tagPhotographe == tag).length > 0)

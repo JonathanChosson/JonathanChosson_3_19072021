@@ -1,22 +1,19 @@
 //import des modules
 import {arrayArtistes, tableauPhotographe} from './store.js';
-import {ecouteModal} from './modal.js';
+import {carousselActions} from './caroussel.js';
 
 //Elements du DOM
 let artiste = document.getElementsByClassName('photographers__header');
 let footer = document.getElementsByClassName('photographers__footer');
 let oeuvre = document.getElementsByClassName('photographers__article');
 let select = document.getElementsByClassName('photographers__article--filtre__select');
+let modalBody = document.getElementsByClassName("modal-body");
 
 //Fonction
 function afficheArtiste(){
     if (window.location.search.split("=").length > 1){
         let artisteId = window.location.search.split("=")[1];
-        console.log(artisteId);
-        console.log(tableauPhotographe);
         let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
-        console.log(ficheArtiste);
-        
         artiste[0].childNodes[3].childNodes[1].innerHTML = ficheArtiste[0].nom;
         artiste[0].childNodes[3].childNodes[3].innerHTML = ficheArtiste[0].ville + ", " +ficheArtiste[0].pays;
         artiste[0].childNodes[3].childNodes[5].innerHTML = ficheArtiste[0].dicton;
@@ -35,7 +32,6 @@ function afficheArtiste(){
             div.append(a);
         });
         artiste[0].childNodes[3].append(div);
-        console.log(footer[0]);
         footer[0].innerHTML = "";
         let p = document.createElement('p');
         p.innerHTML = `297 081 <i class="fas fa-heart"></i>`;
@@ -51,11 +47,8 @@ function afficheArtiste(){
 //Affiche les médias de l'artiste
 function mediaArtiste() {
     if (window.location.search.split("=").length > 1){
-        console.log('medias');
         let artisteId = window.location.search.split("=")[1];
-        console.log(artisteId);
         let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
-        console.log(ficheArtiste);
         let mediaArtiste = ficheArtiste[0].media
         //défi Marion 
         // Je crée une variable de tri
@@ -88,11 +81,22 @@ function mediaArtiste() {
         document.location.href="./index.html"; 
     }
 }
+
 //fonction rempli les medias
 function rempliMedia(mediaArtiste){
     oeuvre[0].innerHTML ="";
+    modalBody[0].innerHTML = "";
+    let fermerModal = document.createElement('i');
+    fermerModal.classList.add("fas", "fa-times", "close");
+    modalBody[0].append(fermerModal);
+    let aside = document.createElement('aside');
+    let btnPrecedant = document.createElement('i');
+    btnPrecedant.classList.add('fas', 'fa-chevron-left');
+    btnPrecedant.setAttribute('id', 'precedant');
+    aside.append(btnPrecedant);
+    modalBody[0].append(aside);
+    let article = document.createElement('article');
     for(let media of mediaArtiste){
-        console.log(media);
         let div = document.createElement('div');
         div.classList.add('photographers__article__div');
         let figure = document.createElement('figure');
@@ -100,6 +104,7 @@ function rempliMedia(mediaArtiste){
         let img = document.createElement('img');
         img.classList.add('photographers__article__div__figure__img');
         img.classList.add('modal-btn');
+        img.setAttribute('id', media.id);
         let video = document.createElement('video');
         video.classList.add('photographers__article__div__figure');
         video.setAttribute('controls', "");
@@ -107,6 +112,9 @@ function rempliMedia(mediaArtiste){
             img.setAttribute('src',`./public/images/${media.photographerId}/${media.image}`);
             figure.append(img);
             div.append(figure);
+            figure = figure.cloneNode(true);
+            figure.classList.add('caroussel')
+            article.append(figure.cloneNode(true));
         }else if(media.video !=undefined){
             let sourceVideo = document.createElement('source');
             sourceVideo.classList.add('photographers__article__div__figure__source');
@@ -125,7 +133,14 @@ function rempliMedia(mediaArtiste){
         div.append(pLikes);
         oeuvre[0].append(div);
     }
-    ecouteModal();
+    modalBody[0].append(article);
+    aside = aside.cloneNode();
+    let btnSuivant = document.createElement('i');
+    btnSuivant.classList.add('fas', 'fa-chevron-right');
+    btnSuivant.setAttribute('id', 'suivant');
+    aside.append(btnSuivant);
+    modalBody[0].append(aside);
+    carousselActions();
 }
 
 //trier par titre
