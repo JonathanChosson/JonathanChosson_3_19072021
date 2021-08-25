@@ -1,6 +1,6 @@
 //import des modules
 import {arrayArtistes, tableauPhotographe} from './store.js';
-import {carousselActions} from './caroussel.js';
+import {gestionModal} from './modal.js';
 
 //Elements du DOM
 let artiste = document.getElementsByClassName('photographers__header');
@@ -140,7 +140,7 @@ function rempliMedia(mediaArtiste){
     btnSuivant.setAttribute('id', 'suivant');
     aside.append(btnSuivant);
     modalBody[0].append(aside);
-    carousselActions();
+    gestionModal();
 }
 
 //trier par titre

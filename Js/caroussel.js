@@ -1,14 +1,14 @@
-import {gestionModal} from './modal.js';
-
-export function carousselActions() {
-    gestionModal();
-    const images = document.querySelectorAll('.caroussel');
+export function carousselActions(idClic) {
+    let images = document.querySelectorAll('.caroussel');
     let imgActive = 0;
-    console.log(images);
-    //rend toute les images invisibles sauf la première
-    for( let i = 1; i < images.length; i++) {
-        images[i].classList.add('invisible');
-    }
+    images.forEach(element => {
+        element.classList.add('invisible');
+        let imagesArray = Array.prototype.slice.call(images);
+        if(element.children[0].id == idClic){
+            element.classList.remove('invisible');
+            imgActive = imagesArray.indexOf(element);
+        }
+    });
 
     // Ecoute sur clic btn suivant
     document.getElementById('suivant').addEventListener('click', function(){
