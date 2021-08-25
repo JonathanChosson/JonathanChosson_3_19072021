@@ -6,8 +6,7 @@ export function gestionModal() {
     const closeBtn = document.querySelectorAll(".close");
 
 
-    // launch modal event
-    // modalBtn.forEach(btn => btn.addEventListener("click", function(){console.log(btn);}));
+    // launch et close modal event
     modalBtn.forEach(btn => btn.addEventListener("click", function(imgClic){launchModal(imgClic)}));
     closeBtn.forEach((close) => close.addEventListener("click", closeModal));
 

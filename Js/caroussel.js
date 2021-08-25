@@ -1,17 +1,30 @@
 export function carousselActions(idClic) {
     let images = document.querySelectorAll('.caroussel');
-    let imgActive = 0;
+    images = Array.prototype.slice.call(images);
     images.forEach(element => {
         element.classList.add('invisible');
-        let imagesArray = Array.prototype.slice.call(images);
+        element.classList.remove('slide-in-left');
+        element.classList.remove('slide-in-right');
         if(element.children[0].id == idClic){
             element.classList.remove('invisible');
-            imgActive = imagesArray.indexOf(element);
         }
     });
+}
 
+export function ecouteBtnCaroussel(){
+    let images = document.querySelectorAll('.caroussel');
+    images = Array.prototype.slice.call(images);
+    let imgActive;
+    function imgAct(){
+        images.forEach(element => {
+            if(!element.classList.contains('invisible')){
+                imgActive = images.indexOf(element);
+            }
+        })
+    }
     // Ecoute sur clic btn suivant
-    document.getElementById('suivant').addEventListener('click', function(){
+    document.getElementById('suivant').addEventListener('click', async function(){
+        await imgAct();
         images[imgActive].classList.add('invisible');
         images[imgActive].classList.remove('slide-in-left');
         images[imgActive].classList.remove('slide-in-right');
@@ -24,7 +37,8 @@ export function carousselActions(idClic) {
     });
 
     // Ecoute sur bouton precedant
-    document.getElementById('precedant').addEventListener('click', function(){
+    document.getElementById('precedant').addEventListener('click', async function(){
+        await imgAct();
         images[imgActive].classList.add('invisible');
         images[imgActive].classList.remove('slide-in-left');
         images[imgActive].classList.remove('slide-in-right');
