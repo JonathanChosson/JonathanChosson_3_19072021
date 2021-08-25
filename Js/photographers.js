@@ -113,7 +113,7 @@ function rempliMedia(mediaArtiste){
             figure.append(img);
             div.append(figure);
             figure = figure.cloneNode(true);
-            figure.classList.add('caroussel')
+            figure.classList.add('caroussel');
             article.append(figure.cloneNode(true));
         }else if(media.video !=undefined){
             let sourceVideo = document.createElement('source');
@@ -122,6 +122,9 @@ function rempliMedia(mediaArtiste){
             sourceVideo.setAttribute('type', "video/mp4");
             video.append(sourceVideo);
             div.append(video);
+            video = video.cloneNode(true);
+            video.classList.add('caroussel');
+            article.append(video.cloneNode(true));
         }
         let pTitre = document.createElement('p');
         pTitre.classList.add('photographers__article__div__p--titre');
