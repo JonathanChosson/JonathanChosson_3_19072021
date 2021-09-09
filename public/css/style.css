@@ -298,6 +298,17 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  position: relative;
+}
+.photographers__article__div__span {
+  position: absolute;
+  width: 90%;
+  height: 45vw;
+  font-size: 8rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .photographers__article__div__figure {
   width: 100%;
@@ -334,6 +345,9 @@ body {
   .photographers__article__div {
     width: 28%;
     height: 300Px;
+  }
+  .photographers__article__div__span {
+    height: 300px;
   }
   .photographers__article__div__figure {
     height: 300px;

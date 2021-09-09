@@ -10,6 +10,17 @@
             display: flex;
             flex-flow: row wrap;
             justify-content: space-between;
+            position: relative;
+            &__span{
+                position: absolute;
+                width: 90%;
+                height: 45vw;
+                font-size: 8rem;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             &__figure{
                 width: 100%;
                 height: 45vw;
@@ -49,6 +60,9 @@
             &__div{
                 width: 28%;
                 height: 300Px;
+                &__span{
+                    height: 300px;
+                }
                 &__figure{
                     height: 300px;
                     object-fit: cover;

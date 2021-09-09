@@ -108,7 +108,7 @@ function rempliMedia(mediaArtiste){
         img.setAttribute('id', media.id);
         let video = document.createElement('video');
         video.classList.add('photographers__article__div__figure');
-        video.setAttribute('controls', "");
+        // video.setAttribute('controls', "");
         if(media.image !=undefined){
             img.setAttribute('src',`./public/images/${media.photographerId}/${media.image}`);
             figure.append(img);
@@ -122,6 +122,10 @@ function rempliMedia(mediaArtiste){
             sourceVideo.setAttribute('src',`./public/images/${media.photographerId}/${media.video}`);
             sourceVideo.setAttribute('type', "video/mp4");
             video.append(sourceVideo);
+            let playBtn = document.createElement('span');
+            playBtn.classList.add('photographers__article__div__span')
+            playBtn.innerHTML = `<i class="far fa-play-circle"></i>`;
+            div.append(playBtn);
             div.append(video);
             video = video.cloneNode(true);
             video.classList.add('caroussel');
