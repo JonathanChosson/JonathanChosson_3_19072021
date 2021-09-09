@@ -79,7 +79,7 @@ body {
   justify-content: center;
 }
 .main__article__figure {
-  width: 70%;
+  width: 180px;
   height: 180px;
   border-radius: 150px;
   object-fit: cover;
@@ -476,19 +476,19 @@ body {
 }
 
 .content {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background: black;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
 }
 
 .modal-body {
-  padding: 15px 8%;
+  padding: 0px;
   display: flex;
+  height: 100%;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-around;
