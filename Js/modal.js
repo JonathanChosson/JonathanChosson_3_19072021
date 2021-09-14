@@ -4,20 +4,34 @@ export function gestionModal() {
     const modalbg = document.querySelector(".bground");
     const modalBtn = document.querySelectorAll(".modal-btn");
     const closeBtn = document.querySelectorAll(".close");
+    const playBtn = document.querySelectorAll(".photographers__article__div__span");
+    const videos = document.querySelectorAll(".video");
+    const contact = document.querySelectorAll(".contactButton");
 
-
-    // launch et close modal event
+    // Evenement d'ouverture et fermeture de modale
     modalBtn.forEach(btn => btn.addEventListener("click", function(imgClic){launchModal(imgClic)}));
     closeBtn.forEach((close) => close.addEventListener("click", closeModal));
 
-    // launch modal form
+    // fonction lancer modal
     function launchModal(imgClic) {
         carousselActions(imgClic.target.id);
+        videos.forEach(video =>{
+            // video.setAttribute('controls', "");
+            video.setAttribute('controls', "");
+        })
+        playBtn[0].style.display ="none";
+        contact[0].style.display = "none";
         modalbg.style.display = "block";
     }
 
-    //close modal event
+    //fonction fermeture de la modal
     function closeModal() {
+        videos.forEach(video =>{
+            // video.setAttribute('controls', "");
+            video.removeAttribute('controls', "");
+        })
+        playBtn[0].style.display ="flex";
+        contact[0].style.display = "flex";
         modalbg.style.display = "none";
     }
 }

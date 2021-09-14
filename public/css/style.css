@@ -302,8 +302,8 @@ body {
 }
 .photographers__article__div__span {
   position: absolute;
+  z-index: 1;
   width: 90%;
-  height: 45vw;
   font-size: 8rem;
   color: white;
   display: flex;
@@ -312,7 +312,6 @@ body {
 }
 .photographers__article__div__figure {
   width: 100%;
-  height: 45vw;
   margin: 0px;
   border-radius: 5px;
 }
@@ -349,11 +348,6 @@ body {
   .photographers__article__div__span {
     height: 300px;
   }
-  .photographers__article__div__figure {
-    height: 300px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
   .photographers__article__div__figure__img {
     height: 300px;
   }
@@ -384,6 +378,10 @@ body {
     min-height: 0px;
   }
 }
+.video {
+  object-fit: cover;
+}
+
 .photographers__footer {
   display: none;
 }
@@ -433,6 +431,7 @@ body {
 
 .contactButton {
   position: fixed;
+  z-index: 2;
   bottom: 35px;
   width: 100%;
   display: flex;
@@ -477,6 +476,17 @@ body {
   display: none;
 }
 
+.caroussel {
+  max-height: 90vw;
+}
+
+.caroussel :first-child {
+  object-fit: cover;
+  height: 90%;
+  width: 100%;
+  border-radius: 5px;
+}
+
 .bground {
   display: none;
   position: fixed;
@@ -492,7 +502,7 @@ body {
 .content {
   height: 100%;
   width: 100vw;
-  background: black;
+  background: white;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -508,6 +518,20 @@ body {
   justify-content: space-around;
 }
 
+.modal-body article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+  width: 85%;
+}
+
+.modal-body aside i {
+  font-size: 2.5rem;
+  color: #901C1C;
+  cursor: pointer;
+}
+
 .close {
   color: #901C1C;
   width: 42px;
@@ -515,8 +539,13 @@ body {
   font-size: 2.5rem;
   text-align: center;
   position: absolute;
-  right: 2%;
-  top: 2%;
+  right: 1%;
+  top: 6%;
+  cursor: pointer;
+}
+
+.modal-btn {
+  cursor: pointer;
 }
 
 @-webkit-keyframes slide-in-right {
