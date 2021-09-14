@@ -2,13 +2,13 @@
     display: none;
 }
 
-.caroussel{
-    max-height: 90vw;
-}
+// .caroussel{
+//     // max-height: 90vw;
+// }
 
 .caroussel :first-child{
     object-fit: cover;
-    height: 90%;
+    height: 600px;
     width: 100%;
     border-radius: 5px;
 }

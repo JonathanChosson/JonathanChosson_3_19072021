@@ -130,6 +130,8 @@ function rempliMedia(mediaArtiste){
             div.append(video);
             video = video.cloneNode(true);
             video.classList.add('caroussel');
+            video.classList.remove('video');
+            video.classList.add('videoCaroussel');
             article.append(video.cloneNode(true));
         }
         let pTitre = document.createElement('p');

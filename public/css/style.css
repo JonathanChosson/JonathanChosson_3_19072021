@@ -303,7 +303,8 @@ body {
 .photographers__article__div__span {
   position: absolute;
   z-index: 1;
-  width: 90%;
+  width: 95%;
+  height: 45vw;
   font-size: 8rem;
   color: white;
   display: flex;
@@ -380,6 +381,8 @@ body {
 }
 .video {
   object-fit: cover;
+  width: 100%;
+  height: 300px;
 }
 
 .photographers__footer {
@@ -390,6 +393,7 @@ body {
   .photographers__footer {
     display: block;
     position: fixed;
+    z-index: 2;
     right: 5%;
     bottom: -2%;
     background: #DB8876;
@@ -476,13 +480,9 @@ body {
   display: none;
 }
 
-.caroussel {
-  max-height: 90vw;
-}
-
 .caroussel :first-child {
   object-fit: cover;
-  height: 90%;
+  height: 600px;
   width: 100%;
   border-radius: 5px;
 }
@@ -515,7 +515,7 @@ body {
   height: 100%;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .modal-body article {
