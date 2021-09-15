@@ -2,9 +2,10 @@
     display: none;
 }
 
-// .caroussel{
-//     // max-height: 90vw;
-// }
+.caroussel{
+    width:auto;
+    max-width: 90%;
+}
 
 .caroussel :first-child{
     object-fit: cover;

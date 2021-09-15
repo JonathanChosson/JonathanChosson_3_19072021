@@ -480,6 +480,11 @@ body {
   display: none;
 }
 
+.caroussel {
+  width: auto;
+  max-width: 90%;
+}
+
 .caroussel :first-child {
   object-fit: cover;
   height: 600px;
@@ -539,8 +544,8 @@ body {
   font-size: 2.5rem;
   text-align: center;
   position: absolute;
-  right: 1%;
-  top: 6%;
+  right: 2%;
+  top: 15%;
   cursor: pointer;
 }
 
