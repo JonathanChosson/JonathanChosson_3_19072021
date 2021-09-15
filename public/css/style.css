@@ -385,6 +385,10 @@ body {
   height: 300px;
 }
 
+.like {
+  cursor: pointer;
+}
+
 .photographers__footer {
   display: none;
 }

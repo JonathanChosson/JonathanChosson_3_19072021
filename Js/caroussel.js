@@ -24,6 +24,26 @@ export function ecouteBtnCaroussel(){
     }
     // Ecoute sur clic btn suivant
     document.getElementById('suivant').addEventListener('click', async function(){
+        suivant();
+    });
+
+    // Ecoute sur bouton precedant
+    document.getElementById('precedant').addEventListener('click', async function(){
+        precedant();
+    })
+
+    // Ecoute touches clavier
+    document.onkeydown = verifieTouche;
+    async function verifieTouche(touche){
+        touche = touche || window.event;
+        if(touche.key == "ArrowRight"){
+            suivant();
+        }else if(touche.key =="ArrowLeft"){
+            precedant();
+        }
+    }
+
+    async function suivant(){
         await imgAct();
         images[imgActive].classList.add('invisible');
         images[imgActive].classList.remove('slide-in-left');
@@ -34,10 +54,9 @@ export function ecouteBtnCaroussel(){
         }
         images[imgActive].classList.remove('invisible');
         images[imgActive].classList.add('slide-in-right');
-    });
+    }
 
-    // Ecoute sur bouton precedant
-    document.getElementById('precedant').addEventListener('click', async function(){
+    async function precedant(){
         await imgAct();
         images[imgActive].classList.add('invisible');
         images[imgActive].classList.remove('slide-in-left');
@@ -49,5 +68,5 @@ export function ecouteBtnCaroussel(){
         }
         images[imgActive].classList.remove('invisible');
         images[imgActive].classList.add('slide-in-left');
-    })
+    }
 }

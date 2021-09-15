@@ -10,7 +10,10 @@ let oeuvre = document.getElementsByClassName('photographers__article');
 let select = document.getElementsByClassName('photographers__article--filtre__select');
 let modalBody = document.getElementsByClassName("modal-body");
 
+
 //Fonction
+
+//affiche les finormations de l'artiste
 function afficheArtiste(){
     if (window.location.search.split("=").length > 1){
         let artisteId = window.location.search.split("=")[1];
@@ -51,7 +54,6 @@ function mediaArtiste() {
         let artisteId = window.location.search.split("=")[1];
         let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
         let mediaArtiste = ficheArtiste[0].media
-        //défi Marion 
         // Je crée une variable de tri
         let trier = "";
         // j'écoute mon select pour voir si il y as un changement et modifie ma variable "trier" en fonction
@@ -139,6 +141,7 @@ function rempliMedia(mediaArtiste){
         pTitre.innerHTML =`${media.title}`;
         let pLikes = document.createElement('p');
         pLikes.classList.add('photographers__article__div__p--likes');
+        pLikes.classList.add('like');
         pLikes.innerHTML = `${media.likes} <i class="fas fa-heart"></i>`;
         div.append(pTitre);
         div.append(pLikes);
@@ -152,6 +155,7 @@ function rempliMedia(mediaArtiste){
     aside.append(btnSuivant);
     modalBody[0].append(aside);
     gestionModal();
+    gestionLike();
     ecouteBtnCaroussel();
 }
 
@@ -186,6 +190,18 @@ function compareDate(a,b){
         return 1;
     }
     return 0;
+}
+
+function gestionLike(){
+    let likes = document.querySelectorAll('.like');
+    likes.forEach(like => {
+        like.addEventListener('click', function(){
+            console.log(like.innerText);
+            let count = parseInt(like.innerText);
+            count ++;
+            like.innerHTML = `${count} <i class="fas fa-heart"></i>`;
+        })
+    });
 }
 
 //app
