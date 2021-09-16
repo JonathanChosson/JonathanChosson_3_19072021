@@ -10,10 +10,35 @@
     background-color: rgba(26, 39, 156, 0.4);
 }
 
+.bground--contact {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height:100vh;
+    width: 100vw;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.199);
+}
+
 .content {
     height:100%;
     width: 100vw;
     background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+}
+
+.content--contact {
+    height:70%;
+    width: 80vw;
+    text-align: left;
+    background: #DB8876;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -27,6 +52,17 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.modal-body--contact {
+    color: black;
+    padding: 0px ;
+    display: flex;
+    height: 100%;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 30px;
 }
 
 .modal-body article{
@@ -55,6 +91,66 @@
     cursor: pointer;
 }
 
+.close--contact {
+    color: white;
+    width: 42px;
+    height: 42px;
+    font-size: 2.5rem;
+    position: absolute;
+    right: 2%;
+    top: 5%;
+    cursor: pointer;
+}
+
+
+
 .modal-btn{
     cursor: pointer;
+}
+
+.form-example{
+    display: flex;
+    flex-flow: column nowrap;
+    width : 100%;
+}
+
+.form-example label{
+    color : rgb(71, 71, 71);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.form-example input{
+    border: none;
+    border-radius: 5px;
+    line-height: 2rem;
+}
+
+.form-example textarea{
+    border: none;
+    border-radius: 5px;
+    line-height: 1.8rem;
+}
+
+.modal-body--contact__p{
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#envoyer{
+    margin-top: 10px;
+    height: 35px;
+    width: 150px;
+    padding: 0px 30px 0px 30px;
+    letter-spacing: 0.1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    background-color:$primaire_cadre ;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
 }
