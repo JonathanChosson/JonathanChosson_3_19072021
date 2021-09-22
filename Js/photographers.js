@@ -1,6 +1,6 @@
 //import des modules
 import {arrayArtistes, tableauPhotographe} from './store.js';
-import {gestionModal} from './modal.js';
+import {gestionModal, contactModal} from './modal.js';
 import {ecouteBtnCaroussel} from './caroussel.js'
 
 //Elements du DOM
@@ -155,6 +155,7 @@ function rempliMedia(mediaArtiste){
     aside.append(btnSuivant);
     modalBody[0].append(aside);
     gestionModal();
+    contactModal();
     gestionLike();
     ecouteBtnCaroussel();
 }

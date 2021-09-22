@@ -52,18 +52,20 @@ function listeArtistes() {
 //Fonction boutton top
 window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-}
-
-// eslint-disable-next-line no-unused-vars
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+}
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topBtn.style.display = "block";
+        topBtn.addEventListener("click", function(){
+            topFunction();
+        })
+    } else {
+        topBtn.style.display = "none";
+    }
 }
 
 

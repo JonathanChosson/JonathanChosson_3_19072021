@@ -22,7 +22,6 @@ export function gestionModal() {
     function launchModal(imgClic) {
         if(!imgClic){
             modalContact.style.display = "flex";
-            contactModal();
         }else{
             carousselActions(imgClic.target.id);
             videos.forEach(video =>{
@@ -48,27 +47,30 @@ export function gestionModal() {
         modalbg.style.display = "none";
         modalContact.style.display = "none";
     }
-
-    //gestion modal contact
-    function contactModal(){
-        let artisteId = window.location.search.split("=")[1];
-        let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
-        let headerModalContact = document.querySelector('.modal-body--contact__p');
-        headerModalContact.innerHTML = `Contactez-moi </br> ${ficheArtiste[0].nom}`;
-        let envoyerBtn = document.getElementById('envoyer');
-        envoyerBtn.addEventListener('click', function(event){
-            event.preventDefault();
-            function Message(prenom,nom,email,texte){
-                return{
-                    prenom,
-                    nom,
-                    email,
-                    texte
-                }
-            }
-            let msgUtilisateur = new Message(document.getElementById('prenom').value,document.getElementById('nom').value,document.getElementById('email').value,document.getElementById('texte').value);
-            console.log(msgUtilisateur);
-        })
-    }
 }
 
+ //gestion modal contact
+export function contactModal(){
+    let artisteId = window.location.search.split("=")[1];
+    let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
+    let headerModalContact = document.querySelector('.modal-body--contact__p');
+    headerModalContact.innerHTML = `Contactez-moi </br> ${ficheArtiste[0].nom}`;
+    let envoyerBtn = document.getElementById('envoyer');
+    envoyerBtn.addEventListener('click', function(event){
+        event.preventDefault();
+        function Message(prenom,nom,email,texte){
+            return{
+                prenom,
+                nom,
+                email,
+                texte
+            }
+        }
+        let msgUtilisateur = new Message(document.getElementById('prenom').value,document.getElementById('nom').value,document.getElementById('email').value,document.getElementById('texte').value);
+        console.log(msgUtilisateur);
+        let bodyModalContact = document.querySelector('.modal-body--contact');
+        bodyModalContact.innerHTML = `
+        <p class="modal-body--contact__p">Votre message a bien été envoyé</p>
+        `;
+    })
+}
