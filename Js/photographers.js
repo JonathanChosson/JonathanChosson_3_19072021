@@ -36,13 +36,6 @@ function afficheArtiste(){
             div.append(a);
         });
         artiste[0].childNodes[3].append(div);
-        footer[0].innerHTML = "";
-        let p = document.createElement('p');
-        p.innerHTML = `297 081 <i class="fas fa-heart"></i>`;
-        footer[0].append(p);
-        let pPrice = document.createElement('p');
-        pPrice.innerHTML = `${ficheArtiste[0].prix}€ /jour`;
-        footer[0].append(pPrice);
     }else{
         document.location.href="./index.html"; 
     }
@@ -53,7 +46,7 @@ function mediaArtiste() {
     if (window.location.search.split("=").length > 1){
         let artisteId = window.location.search.split("=")[1];
         let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
-        let mediaArtiste = ficheArtiste[0].media
+        let mediaArtiste = ficheArtiste[0].media;
         // Je crée une variable de tri
         let trier = "";
         // j'écoute mon select pour voir si il y as un changement et modifie ma variable "trier" en fonction
@@ -77,6 +70,17 @@ function mediaArtiste() {
                 rempliMedia(mediaArtiste);
             }
         })
+        let likesTotal = 0;
+        mediaArtiste.forEach(media => {
+            likesTotal += media.likes
+        });
+        footer[0].innerHTML = "";
+        let p = document.createElement('p');
+        p.innerHTML = `${likesTotal} <i class="fas fa-heart"></i>`;
+        footer[0].append(p);
+        let pPrice = document.createElement('p');
+        pPrice.innerHTML = `${ficheArtiste[0].prix}€ /jour`;
+        footer[0].append(pPrice);
         //j'ai du créer une fonction qui rempli les medias pour y afaire appel a volonté
         rempliMedia(mediaArtiste);
         //fin du défi
@@ -139,12 +143,16 @@ function rempliMedia(mediaArtiste){
         let pTitre = document.createElement('p');
         pTitre.classList.add('photographers__article__div__p--titre');
         pTitre.innerHTML =`${media.title}`;
+        let divLike = document.createElement('div');
+        divLike.classList.add('like');
         let pLikes = document.createElement('p');
         pLikes.classList.add('photographers__article__div__p--likes');
-        pLikes.classList.add('like');
+        // pLikes.classList.add('like');
         pLikes.innerHTML = `${media.likes} <i class="fas fa-heart"></i>`;
+        divLike.append(pLikes);
         div.append(pTitre);
-        div.append(pLikes);
+        // div.append(pLikes);
+        div.append(divLike);
         oeuvre[0].append(div);
     }
     modalBody[0].append(article);
@@ -197,10 +205,9 @@ function gestionLike(){
     let likes = document.querySelectorAll('.like');
     likes.forEach(like => {
         like.addEventListener('click', function(){
-            console.log(like.innerText);
             let count = parseInt(like.innerText);
             count ++;
-            like.innerHTML = `${count} <i class="fas fa-heart"></i>`;
+            like.firstChild.innerHTML = `${count} <i class="fas fa-heart"></i>`;
         })
     });
 }
