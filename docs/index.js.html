@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Import de {@link module:arrayArtistes} et de {@link module:tableauPhotographe}
+ * @name importIndex
+ */
+import {arrayArtistes, tableauPhotographe} from './store.js';
+
+//Récuperer les éléments du DOM
+let main = document.getElementsByClassName('main');
+let topBtn = document.getElementById('topBtn');
+
+/**
+ * Affiche la liste des artistes et rempli leurs fiches
+ * @type {function}
+ */
+function listeArtistes() {
+    console.log(tableauPhotographe);
+    main[0].innerHTML = "";
+    //affiche une fiche par artiste présents dans photographers[]
+    tableauPhotographe.forEach(element => {
+        let ficheArtiste = document.createElement('article');
+        ficheArtiste.classList.add('main__article');
+        console.log(element);
+        ficheArtiste.innerHTML = `
+            &lt;a class="main__article__a" href="./photographers-page.html?id=${element.id}">
+                &lt;figure class="main__article__figure">
+                    &lt;img class="main__article__figure__img" alt="" title="${element.nom}" src="./public/images/profil/${element.portrait}" />
+                &lt;/figure>
+                &lt;h2 class="main__article__h2">
+                    ${element.nom}
+                &lt;/h2>
+            &lt;/a>
+            &lt;p class="main__article__p--ville">
+                ${element.ville}, ${element.pays}
+            &lt;/p>
+            &lt;p class="main__article__p--dicton">
+                ${element.dicton}
+            &lt;/p>
+            &lt;p class="main__article__p--tarif">
+                ${element.prix}€/jour
+            &lt;/p>
+        `;
+        let div = document.createElement('div');
+        div.classList.add('main__article__ul');
+        element.tags.forEach(tag => {
+            let a = document.createElement('a');
+            a.classList.add('main__article__ul__a');
+            a.setAttribute('href', `./index.html?filter=${tag}`)
+            let span = document.createElement('span');
+            span.classList.add('main__article__ul__li');
+            span.innerHTML = `#${tag}`;
+            a.append(span);
+            div.append(a);
+        });
+        ficheArtiste.append(div);
+        main[0].append(ficheArtiste);
+    });
+}
+
+//Détecte le scroll 
+window.onscroll = function() {scrollFunction()};
+
+/**
+ * Renvoi la page au début
+ */
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+/**
+ * Détecte la position du scroll et fait apparaitre le bouton
+ * @return {@link methods:topFunction}
+ */
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topBtn.style.display = "block";
+        topBtn.addEventListener("click", function(){
+            topFunction();
+        })
+    } else {
+        topBtn.style.display = "none";
+    }
+}
+
+//app
+arrayArtistes(listeArtistes);
+
+
+
+
+console.log(main);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-arrayArtistes.html">arrayArtistes</a></li><li><a href="module-enregistrerMedia.html">enregistrerMedia</a></li><li><a href="module-enregistrerPhotographes.html">enregistrerPhotographes</a></li><li><a href="module-filtre.html">filtre</a></li><li><a href="module-gestionModal.html">gestionModal</a></li><li><a href="module-tableauPhotographe.html">tableauPhotographe</a></li></ul><h3>Classes</h3><ul><li><a href="module-enregistrerMedia-Photographe.html">Photographe</a></li></ul><h3>Global</h3><ul><li><a href="global.html#afficheArtiste">afficheArtiste</a></li><li><a href="global.html#compareDate">compareDate</a></li><li><a href="global.html#compareLikes">compareLikes</a></li><li><a href="global.html#compareTitre">compareTitre</a></li><li><a href="global.html#gestionLike">gestionLike</a></li><li><a href="global.html#importIndex">importIndex</a></li><li><a href="global.html#importPhotographers">importPhotographers</a></li><li><a href="global.html#listeArtistes">listeArtistes</a></li><li><a href="global.html#mediaArtiste">mediaArtiste</a></li><li><a href="global.html#page">page</a></li><li><a href="global.html#rempliMedia">rempliMedia</a></li><li><a href="global.html#scrollFunction">scrollFunction</a></li><li><a href="global.html#topFunction">topFunction</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Sep 23 2021 15:12:31 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

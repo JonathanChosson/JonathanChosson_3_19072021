@@ -1,4 +1,9 @@
-//import des modules
+/**
+ * Import de {@link module:arrayArtistes} et de {@link module:tableauPhotographe} depuis le Store, 
+ * Import de {@link module:arrayArtistes} et de {@link module:tableauPhotographe} depuis le Store, 
+ * Import de {@link module:arrayArtistes} et de {@link module:tableauPhotographe} depuis le Store
+ * @name importPhotographers
+ */
 import {arrayArtistes, tableauPhotographe} from './store.js';
 import {gestionModal, contactModal} from './modal.js';
 import {ecouteBtnCaroussel} from './caroussel.js'
@@ -11,9 +16,10 @@ let select = document.getElementsByClassName('photographers__article--filtre__se
 let modalBody = document.getElementsByClassName("modal-body");
 
 
-//Fonction
-
-//affiche les finormations de l'artiste
+/**
+ * Affiche les informations de l'artiste
+ * @type {function}
+ */
 function afficheArtiste(){
     if (window.location.search.split("=").length > 1){
         let artisteId = window.location.search.split("=")[1];
@@ -41,7 +47,11 @@ function afficheArtiste(){
     }
     mediaArtiste();
 }
-//Affiche les médias de l'artiste
+
+/**
+ * Trie uniquement les medias en rapport avec l'artiste les filtre au besoin 
+ * @type {function}
+ */
 function mediaArtiste() {
     if (window.location.search.split("=").length > 1){
         let artisteId = window.location.search.split("=")[1];
@@ -89,7 +99,10 @@ function mediaArtiste() {
     }
 }
 
-//fonction rempli les medias
+/**
+ * Affiche les medias précedement trié par {@link mediaArtiste}
+ * @param {array} mediaArtiste 
+ */
 function rempliMedia(mediaArtiste){
     oeuvre[0].innerHTML ="";
     modalBody[0].innerHTML = "";
@@ -168,7 +181,12 @@ function rempliMedia(mediaArtiste){
     ecouteBtnCaroussel();
 }
 
-//trier par titre
+/**
+ * Trie les filtes Titre
+ * @param {string} a 
+ * @param {string} b 
+ * @returns boolean
+ */
 function compareTitre(a,b){
     if(a.title < b.title){
         return -1;
@@ -179,7 +197,12 @@ function compareTitre(a,b){
     return 0;
 }
 
-//trier par popularite
+/**
+ * Trie par nombre de like
+ * @param {number} a 
+ * @param {number} b 
+ * @returns boolean
+ */
 function compareLikes(a,b){
     if(a.likes < b.likes){
         return 1;
@@ -190,7 +213,12 @@ function compareLikes(a,b){
     return 0;
 }
 
-//trier par date
+/**
+ * Trie par date
+ * @param {string} a 
+ * @param {string} b 
+ * @returns boolean
+ */
 function compareDate(a,b){
     if(a.date < b.date){
         return -1;
@@ -201,6 +229,10 @@ function compareDate(a,b){
     return 0;
 }
 
+/**
+ * Incrémente les likes au clic
+ * @type {function}
+ */
 function gestionLike(){
     let likes = document.querySelectorAll('.like');
     likes.forEach(like => {

@@ -1,5 +1,10 @@
 import {carousselActions} from './caroussel.js';
 import {tableauPhotographe} from './store.js';
+
+/**
+ * Ecoute ouvre et ferme la modale des medias
+ * @module gestionModal
+ */
 export function gestionModal() {
     // Elements du DOM
     const modalbg = document.querySelector(".bground");

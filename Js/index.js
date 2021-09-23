@@ -1,10 +1,17 @@
+/**
+ * Import de {@link module:arrayArtistes} et de {@link module:tableauPhotographe}
+ * @name importIndex
+ */
 import {arrayArtistes, tableauPhotographe} from './store.js';
-//Eléments du DOM
+
+//Récuperer les éléments du DOM
 let main = document.getElementsByClassName('main');
 let topBtn = document.getElementById('topBtn');
 
-//Fonction
-//charge la liste des artistes
+/**
+ * Affiche la liste des artistes et rempli leurs fiches
+ * @type {function}
+ */
 function listeArtistes() {
     console.log(tableauPhotographe);
     main[0].innerHTML = "";
@@ -49,14 +56,21 @@ function listeArtistes() {
     });
 }
 
-//Fonction boutton top
+//Détecte le scroll 
 window.onscroll = function() {scrollFunction()};
 
+/**
+ * Renvoi la page au début
+ */
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 
+/**
+ * Détecte la position du scroll et fait apparaitre le bouton
+ * @return {@link methods:topFunction}
+ */
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         topBtn.style.display = "block";
@@ -68,8 +82,7 @@ function scrollFunction() {
     }
 }
 
-
-//App
+//app
 arrayArtistes(listeArtistes);
 
 
