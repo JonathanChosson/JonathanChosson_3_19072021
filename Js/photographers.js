@@ -1,7 +1,7 @@
 /**
  * Import de {@link module:arrayArtistes} et de {@link module:tableauPhotographe} depuis le Store, 
- * Import de {@link module:arrayArtistes} et de {@link module:tableauPhotographe} depuis le Store, 
- * Import de {@link module:arrayArtistes} et de {@link module:tableauPhotographe} depuis le Store
+ * Import de {@link module:gestionModal} et de {@link module:contactModal} depuis modal, 
+ * Import de {@link module:ecouteBtnCaroussel} depuis caroussel
  * @name importPhotographers
  */
 import {arrayArtistes, tableauPhotographe} from './store.js';

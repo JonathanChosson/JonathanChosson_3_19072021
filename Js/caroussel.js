@@ -1,3 +1,8 @@
+/**
+ * Gére l'affichage de la bonne photo
+ * @param {number} idClic fournis par {@link module:contactModal}
+ * @module carousselActions
+ */
 export function carousselActions(idClic) {
     let images = document.querySelectorAll('.caroussel');
     images = Array.prototype.slice.call(images);
@@ -11,6 +16,10 @@ export function carousselActions(idClic) {
     });
 }
 
+/**
+ * Ecoute les différents bouton du caroussel
+ * @module ecouteBtnCaroussel
+ */
 export function ecouteBtnCaroussel(){
     let images = document.querySelectorAll('.caroussel');
     images = Array.prototype.slice.call(images);

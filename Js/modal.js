@@ -1,3 +1,8 @@
+/**
+ * Import de {@link module:tableauPhotographe} depuis le Store, 
+ * Import de {@link module:carousselActions} depuis caroussel
+ * @name importModal
+ */
 import {carousselActions} from './caroussel.js';
 import {tableauPhotographe} from './store.js';
 
@@ -23,27 +28,26 @@ export function gestionModal() {
     closeBtn.forEach((close) => close.addEventListener("click", closeModal));
     closeContact.forEach((close) => close.addEventListener("click", closeModal));
 
-    // fonction lancer modal
+    /**
+     * Rend la modal visible et charge la bonne image suivant ID fournis
+     * @param {number} imgClic Id de l'image à afficher dans la modal
+     */
     function launchModal(imgClic) {
-        if(!imgClic){
-            modalContact.style.display = "flex";
-        }else{
-            carousselActions(imgClic.target.id);
-            videos.forEach(video =>{
-                // video.setAttribute('controls', "");
-                video.setAttribute('controls', "");
-            })
-            modalbg.style.display = "block";
-        }
+        carousselActions(imgClic.target.id);
+        videos.forEach(video =>{
+            video.setAttribute('controls', "");
+        })
+        modalbg.style.display = "block";
         playBtn[0].style.display ="none";
         contact[0].style.display = "none";
         prix[0].style.display ="none";
     }
 
-    //fonction fermeture de la modal
+    /**
+     * Ferme la modale en cours
+     */
     function closeModal() {
         videos.forEach(video =>{
-            // video.setAttribute('controls', "");
             video.removeAttribute('controls', "");
         })
         playBtn[0].style.display ="flex";
@@ -54,7 +58,10 @@ export function gestionModal() {
     }
 }
 
- //gestion modal contact
+/**
+ * Ecoute ouvre et ferme la modale Contact
+ * @module contactModal
+ */
 export function contactModal(){
     let artisteId = window.location.search.split("=")[1];
     let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);

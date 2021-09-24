@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: caroussel.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: caroussel.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Gére l'affichage de la bonne photo
+ * @param {number} idClic fournis par {@link module:contactModal}
+ * @module carousselActions
+ */
+export function carousselActions(idClic) {
+    let images = document.querySelectorAll('.caroussel');
+    images = Array.prototype.slice.call(images);
+    images.forEach(element => {
+        element.classList.add('invisible');
+        element.classList.remove('slide-in-left');
+        element.classList.remove('slide-in-right');
+        if(element.children[0].id == idClic){
+            element.classList.remove('invisible');
+        }
+    });
+}
+
+/**
+ * Ecoute les différents bouton du caroussel
+ * @module ecouteBtnCaroussel
+ */
+export function ecouteBtnCaroussel(){
+    let images = document.querySelectorAll('.caroussel');
+    images = Array.prototype.slice.call(images);
+    let imgActive;
+    function imgAct(){
+        images.forEach(element => {
+            if(!element.classList.contains('invisible')){
+                imgActive = images.indexOf(element);
+            }
+        })
+    }
+    // Ecoute sur clic btn suivant
+    document.getElementById('suivant').addEventListener('click', async function(){
+        suivant();
+    });
+
+    // Ecoute sur bouton precedant
+    document.getElementById('precedant').addEventListener('click', async function(){
+        precedant();
+    })
+
+    // Ecoute touches clavier
+    document.onkeydown = verifieTouche;
+    async function verifieTouche(touche){
+        touche = touche || window.event;
+        if(touche.key == "ArrowRight"){
+            suivant();
+        }else if(touche.key =="ArrowLeft"){
+            precedant();
+        }
+    }
+
+    async function suivant(){
+        await imgAct();
+        images[imgActive].classList.add('invisible');
+        images[imgActive].classList.remove('slide-in-left');
+        images[imgActive].classList.remove('slide-in-right');
+        imgActive ++;
+        if(imgActive >= images.length){
+            imgActive = 0;
+        }
+        images[imgActive].classList.remove('invisible');
+        images[imgActive].classList.add('slide-in-right');
+    }
+
+    async function precedant(){
+        await imgAct();
+        images[imgActive].classList.add('invisible');
+        images[imgActive].classList.remove('slide-in-left');
+        images[imgActive].classList.remove('slide-in-right');
+        imgActive += -1;
+        if(imgActive &lt; 0){
+            imgActive = images.length;
+            imgActive += -1;
+        }
+        images[imgActive].classList.remove('invisible');
+        images[imgActive].classList.add('slide-in-left');
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-arrayArtistes.html">arrayArtistes</a></li><li><a href="module-carousselActions.html">carousselActions</a></li><li><a href="module-contactModal.html">contactModal</a></li><li><a href="module-ecouteBtnCaroussel.html">ecouteBtnCaroussel</a></li><li><a href="module-enregistrerMedia.html">enregistrerMedia</a></li><li><a href="module-enregistrerPhotographes.html">enregistrerPhotographes</a></li><li><a href="module-filtre.html">filtre</a></li><li><a href="module-gestionModal.html">gestionModal</a></li><li><a href="module-tableauPhotographe.html">tableauPhotographe</a></li></ul><h3>Classes</h3><ul><li><a href="module-enregistrerMedia-Photographe.html">Photographe</a></li></ul><h3>Global</h3><ul><li><a href="global.html#afficheArtiste">afficheArtiste</a></li><li><a href="global.html#compareDate">compareDate</a></li><li><a href="global.html#compareLikes">compareLikes</a></li><li><a href="global.html#compareTitre">compareTitre</a></li><li><a href="global.html#gestionLike">gestionLike</a></li><li><a href="global.html#importIndex">importIndex</a></li><li><a href="global.html#importModal">importModal</a></li><li><a href="global.html#importPhotographers">importPhotographers</a></li><li><a href="global.html#listeArtistes">listeArtistes</a></li><li><a href="global.html#mediaArtiste">mediaArtiste</a></li><li><a href="global.html#page">page</a></li><li><a href="global.html#rempliMedia">rempliMedia</a></li><li><a href="global.html#scrollFunction">scrollFunction</a></li><li><a href="global.html#topFunction">topFunction</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Sep 24 2021 11:03:32 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
