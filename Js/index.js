@@ -13,13 +13,14 @@ let topBtn = document.getElementById('topBtn');
  * @type {function}
  */
 function listeArtistes() {
-    console.log(tableauPhotographe);
     main[0].innerHTML = "";
     //affiche une fiche par artiste présents dans photographers[]
+    if(tableauPhotographe.length == 0){
+        document.getElementById('main').innerHTML = `<p class="header__h1">Désolé cette recherche ne renvoie aucun résultat`;
+    }
     tableauPhotographe.forEach(element => {
         let ficheArtiste = document.createElement('article');
         ficheArtiste.classList.add('main__article');
-        console.log(element);
         ficheArtiste.innerHTML = `
             <a class="main__article__a" href="./photographers-page.html?id=${element.id}">
                 <figure class="main__article__figure">
@@ -84,8 +85,3 @@ function scrollFunction() {
 
 //app
 arrayArtistes(listeArtistes);
-
-
-
-
-console.log(main);

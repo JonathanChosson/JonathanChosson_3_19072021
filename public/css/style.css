@@ -65,6 +65,11 @@ body {
     order: 3;
   }
 }
+.choisi {
+  background-color: #901C1C;
+  color: white;
+}
+
 .main {
   display: flex;
   flex-flow: row wrap;

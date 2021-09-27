@@ -83,10 +83,37 @@ function Photographe(nom, ville, pays, id, portrait,prix,dicton, tags){
  * @module filtre
  */
 export function filtre(){
-    //verifie qu'un filtre est appliqué et rempli en fonction tableauPhotographe[]-- //Vérifier si existe ou non plutôt que length //
         if (window.location.search.split("=").length > 1){
+            console.log(localStorage);
+            let tags;
+            if(localStorage.length == 0){
+                tags = [];
+            }else{
+                tags = JSON.parse(localStorage[0]);
+            }
             let tag = window.location.search.split("=")[1];
-            tableauPhotographe = tableauPhotographe.filter(photographe => photographe.tags.filter(tagPhotographe => tagPhotographe == tag).length > 0)
+            if(tags.includes(tag)){
+                tags.splice(tags.indexOf(tag),1);
+            }else{
+                tags.push(tag);
+            }
+            if(tags.length <1){
+                document.location.href="./index.html";
+            }
+            let tableauFiltre = [];
+            tags.forEach(tag => {
+                document.getElementsByClassName(`${tag}`)[0].classList.add('choisi');
+            })
+            tableauPhotographe.forEach(photographe => {
+                if(tags.every(r => photographe.tags.indexOf(r) >= 0)){
+                    console.log(photographe.nom);
+                    if(!tableauFiltre.includes(photographe)){
+                        tableauFiltre.push(photographe);
+                    }
+                }
+            })
+            localStorage.setItem(0, JSON.stringify(tags));
+            tableauPhotographe = tableauFiltre;
         }
 }
 
@@ -99,7 +126,7 @@ export function filtre(){
 function page(lanceFonction){
     let nomPage = window.location.pathname.split("/")[1];
     if(nomPage === "index.html"){
-        filtre();
+        filtre()
         lanceFonction();
     }else if(nomPage === "photographers-page.html"){
         lanceFonction();
