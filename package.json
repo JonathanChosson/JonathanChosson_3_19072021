@@ -4,7 +4,7 @@
   "description": "FishEye",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "sass": "sass --watch ./sass/main.scss:./publics/css/style.css",
     "doc": "jsdoc -c jsdoc.json"
   },
   "repository": {
@@ -20,5 +20,8 @@
   "devDependencies": {
     "eslint": "^7.32.0",
     "jsdoc": "^3.6.7"
+  },
+  "dependencies": {
+    "http-server": "^13.0.2"
   }
 }

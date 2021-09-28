@@ -27,7 +27,7 @@ function afficheArtiste(){
         artiste[0].childNodes[3].childNodes[1].innerHTML = ficheArtiste[0].nom;
         artiste[0].childNodes[3].childNodes[3].innerHTML = ficheArtiste[0].ville + ", " +ficheArtiste[0].pays;
         artiste[0].childNodes[3].childNodes[5].innerHTML = ficheArtiste[0].dicton;
-        artiste[0].childNodes[5].innerHTML = `<img class="photographers__header__figure__img" alt="" title="${ficheArtiste[0].nom}" src="./public/images/profil/${ficheArtiste[0].portrait}" />`;
+        artiste[0].childNodes[5].innerHTML = `<img class="photographers__header__figure__img" alt="" title="${ficheArtiste[0].nom}" src="./publics/images/profil/${ficheArtiste[0].portrait}" />`;
         artiste[0].childNodes[3].removeChild(artiste[0].childNodes[3].childNodes[7]);
         let div = document.createElement('div');
         div.classList.add('main__article__ul');
@@ -129,7 +129,7 @@ function rempliMedia(mediaArtiste){
         video.classList.add('photographers__article__div__figure');
         video.classList.add('video');
         if(media.image !=undefined){
-            img.setAttribute('src',`./public/images/${media.photographerId}/${media.image}`);
+            img.setAttribute('src',`./publics/images/${media.photographerId}/${media.image}`);
             figure.append(img);
             div.append(figure);
             figure = figure.cloneNode(true);
@@ -138,7 +138,7 @@ function rempliMedia(mediaArtiste){
         }else if(media.video !=undefined){
             let sourceVideo = document.createElement('source');
             sourceVideo.classList.add('photographers__article__div__figure__source');
-            sourceVideo.setAttribute('src',`./public/images/${media.photographerId}/${media.video}`);
+            sourceVideo.setAttribute('src',`./publics/images/${media.photographerId}/${media.video}`);
             sourceVideo.setAttribute('type', "video/mp4");
             video.append(sourceVideo);
             let playBtn = document.createElement('span');

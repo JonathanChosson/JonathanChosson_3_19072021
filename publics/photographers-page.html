@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="..//css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0c9cc5d14e.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="..//images/favicon.png" type="image/x-icon">
+    <title>Fisheye</title>
+</head> 
+<body>
+    <a href="javascript:void(0);" class="icon" onclick="editNav()"></a>
+    <div class="bground">
+        <div class="content">
+            <span class="close"></span>
+            <div class="modal-body">
+                <p>Test</p>
+            </div>
+        </div>
+    </div>
+    <div class="bground--contact">
+        <div class="content--contact">
+            <i class="fas fa-times close--contact" aria-hidden="true"></i>
+            <div class="modal-body--contact">
+                <p class="modal-body--contact__p">Contactez-moi </br></p>
+                <form action="#" method="get" class="form-example">
+                    <div class="form-example">
+                        <label for="prenom">Prénom </label>
+                        <input type="text" name="prenom" id="prenom" required>
+                    </div>
+                    <div class="form-example">
+                        <label for="nom">Nom </label>
+                        <input type="text" name="nom" id="nom" required>
+                    </div>
+                    <div class="form-example">
+                        <label for="email">Email </label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-example">
+                        <label for="texte">Email </label>
+                        <textarea name="texte" id="texte" rows="4" required></textarea>
+                    </div>
+                    <div class="form-example">
+                        <input type="submit" value="Envoyer" id="envoyer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        
+    <header class="photographers__header">
+        <a href="../index.html" title="Accueil" class="photographers__header__a">
+            <img class="photographers__header__img" src="..//images/Logo.png" title="Fisheye Home page" alt="Fisheye Home page" />
+        </a>
+        <div class="photographers__header__div">
+            <h1 class="photographers__header__div__h1">
+                Nom Artiste
+            </h1>
+            <p class="photographers__header__div__p--ville">
+                Nom ville, CP
+            </p>
+            <p class="photographers__header__div__p--dicton">
+                Dicton du photographe
+            </p>
+            <ul class="photographers__header__div__ul">
+                <li class="photographers__header__div__ul__li">#artiste</li>
+                <li class="photographers__header__div__ul__li">#artiste</li>
+            </ul>
+        </div>
+        <figure class="photographers__header__figure">
+            <img class="photographers__header__figure__img" alt="" title="" src="..//images/243/Portrait_Nora.jpg" />
+        </figure>
+        <div class="contactButton">
+            <button class="contactButton__button">
+            Contactez-moi
+            </button>
+        </div>
+    </header>
+    <aside>
+        <div class="photographers__article--filtre">
+            Trier par
+            <select name="filtre" id="filtre" class="photographers__article--filtre__select">
+                <option value="popularite">Popularité</option>
+                <option value="date">Date</option>
+                <option value="titre">Titre</option>
+            </select>
+        </div>
+    </aside>
+    <article class="photographers__article">
+        <div class="photographers__article__div">
+            <figure class="photographers__article__div__figure">
+                <img src="..//images/930/Architecture_Connected_Curves.jpg" class="photographers__article__div__figure__img"/>
+            </figure>
+            <p class="photographers__article__div__p--titre">
+                Titre Photo
+            </p>
+            <p class="photographers__article__div__p--likes">
+                nombres likes
+            </p>
+        </div>
+    </article>
+    <footer class="photographers__footer">
+        <p>nombre like + prix</p>
+    </footer>
+    <!-- <script src="../Js/store.js"></script> -->
+    <script type="module" src="../Js/photographers.js"></script>
+    <!-- <script src="../Js/caroussel.js"></script> -->
+    <!-- <script src="../Js/modal.js"></script> -->
+</body>
+</html>

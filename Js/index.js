@@ -24,7 +24,7 @@ function listeArtistes() {
         ficheArtiste.innerHTML = `
             <a class="main__article__a" href="./photographers-page.html?id=${element.id}">
                 <figure class="main__article__figure">
-                    <img class="main__article__figure__img" alt="" title="${element.nom}" src="./public/images/profil/${element.portrait}" />
+                    <img class="main__article__figure__img" alt="" title="${element.nom}" src="./publics/images/profil/${element.portrait}" />
                 </figure>
                 <h2 class="main__article__h2">
                     ${element.nom}
