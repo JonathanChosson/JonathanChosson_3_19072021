@@ -105,7 +105,7 @@ export function filtre(){
                 document.getElementsByClassName(`${tag}`)[0].classList.add('choisi');
             })
             tableauPhotographe.forEach(photographe => {
-                if(tags.every(r => photographe.tags.indexOf(r) >= 0)){
+                if(tags.every(tag => photographe.tags.indexOf(tag) >= 0)){
                     console.log(photographe.nom);
                     if(!tableauFiltre.includes(photographe)){
                         tableauFiltre.push(photographe);

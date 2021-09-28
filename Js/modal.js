@@ -33,11 +33,16 @@ export function gestionModal() {
      * @param {number} imgClic Id de l'image à afficher dans la modal
      */
     function launchModal(imgClic) {
-        carousselActions(imgClic.target.id);
-        videos.forEach(video =>{
-            video.setAttribute('controls', "");
-        })
-        modalbg.style.display = "block";
+        if(!imgClic){
+            modalContact.style.display = "flex";
+        }else{
+            carousselActions(imgClic.target.id);
+            videos.forEach(video =>{
+                // video.setAttribute('controls', "");
+                video.setAttribute('controls', "");
+            })
+            modalbg.style.display = "block";
+        }
         playBtn[0].style.display ="none";
         contact[0].style.display = "none";
         prix[0].style.display ="none";
