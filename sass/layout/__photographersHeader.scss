@@ -19,9 +19,10 @@
         }
         &__a{
             width: 100%;
-            order: 1 100%;
+            order: 1;
         }
         &__div{
+            order: 2;
             display: flex;
             flex-flow: column wrap;
             justify-content: flex-start;
@@ -75,6 +76,7 @@
             }
         }
         &__figure{
+            order: 4;
             height: 80px;
             width: 80px;
             border-radius: 150px;
@@ -106,7 +108,7 @@
                 padding-top: 20px;
             }
             &__div{
-                order: 2;
+                // order: 2;
                 width: auto;
                 height: 160px;
                 margin-left: 30px;
@@ -128,7 +130,7 @@
                 }
             }
             &__figure{
-                order: 4;
+                // order: 3;
                 // flex-grow: 1;
                 height: 140px;
                 width: 140px;
