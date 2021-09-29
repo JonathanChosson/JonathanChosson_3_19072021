@@ -26,7 +26,6 @@ Objectif créer une plateforme pour photographe :
 
 ## Installation
 
-A venir 
 <ul>
     <li>Cloner le projet</li>
     <li>Ouvrir un terminal à la racine du dossier</li>
