@@ -27,11 +27,13 @@ Objectif créer une plateforme pour photographe :
 ## Installation
 
 A venir 
-<!-- <ul>
+<ul>
     <li>Cloner le projet</li>
     <li>Ouvrir un terminal à la racine du dossier</li>
-    <li>Lancer la commande "node server"</li>
-</ul> -->
+    <li>Lancer la commande "npm install"</li>
+    <li>Lancer la commande "npm install -g http-server"</li>
+    <li>Lancer la commande "http-server -o index.html"</li>
+</ul>
 
 ## Auteur
 <img src='https://img.shields.io/badge/Autor-Chosson Jonathan-blue' />
