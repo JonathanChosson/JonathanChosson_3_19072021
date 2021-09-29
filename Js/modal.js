@@ -35,6 +35,7 @@ export function gestionModal() {
     function launchModal(imgClic) {
         if(!imgClic){
             modalContact.style.display = "flex";
+            modalContact.setAttribute("aria-hidden", 'false');
         }else{
             carousselActions(imgClic.target.id);
             videos.forEach(video =>{
@@ -42,6 +43,7 @@ export function gestionModal() {
                 video.setAttribute('controls', "");
             })
             modalbg.style.display = "block";
+            modalbg.setAttribute("aria-hidden", 'false');
         }
         playBtn[0].style.display ="none";
         contact[0].style.display = "none";
@@ -59,7 +61,9 @@ export function gestionModal() {
         contact[0].style.display = "flex";
         prix[0].style.display ="flex";
         modalbg.style.display = "none";
+        modalbg.setAttribute("aria-hidden", 'true');
         modalContact.style.display = "none";
+        modalContact.setAttribute("aria-hidden", 'true');
     }
 }
 
