@@ -20,6 +20,13 @@
             padding: 0px;
             &__a{
                 text-decoration: none;
+                color: $primaire_cadre;
+                font-weight: bold;
+                font-size: 0.7rem;
+                &:hover{
+                    background-color: $primaire_cadre;
+                    color: white;
+                }
             }
             &__li{
                 list-style-type: none;
@@ -27,7 +34,6 @@
                 padding: 5px;
                 border: 1px solid rgb(202, 202, 202);
                 border-radius: 15px;
-                color: $primaire_cadre;
                 font-weight: bold;
                 font-size: 0.7rem;
                 &:hover{
@@ -63,5 +69,5 @@
 
 .choisi{
     background-color: $primaire_cadre;
-    color: white;
+    color: white !important;
 }

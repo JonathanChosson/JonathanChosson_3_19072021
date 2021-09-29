@@ -103,6 +103,7 @@ export function filtre(){
             let tableauFiltre = [];
             tags.forEach(tag => {
                 document.getElementsByClassName(`${tag}`)[0].classList.add('choisi');
+                document.getElementsByClassName(`${tag}`)[1].classList.add('choisi');
             })
             tableauPhotographe.forEach(photographe => {
                 if(tags.every(tag => photographe.tags.indexOf(tag) >= 0)){
