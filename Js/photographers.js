@@ -27,7 +27,7 @@ function afficheArtiste(){
         artiste[0].childNodes[3].childNodes[1].innerHTML = ficheArtiste[0].nom;
         artiste[0].childNodes[3].childNodes[3].innerHTML = ficheArtiste[0].ville + ", " +ficheArtiste[0].pays;
         artiste[0].childNodes[3].childNodes[5].innerHTML = ficheArtiste[0].dicton;
-        artiste[0].childNodes[5].innerHTML = `<img class="photographers__header__figure__img" alt="" title="${ficheArtiste[0].nom}" src="./publics/images/profil/${ficheArtiste[0].portrait}" />`;
+        artiste[0].childNodes[5].innerHTML = `<img class="photographers__header__figure__img" alt="${ficheArtiste[0].nom}" title="${ficheArtiste[0].nom}" src="./publics/images/profil/${ficheArtiste[0].portrait}" />`;
         artiste[0].childNodes[3].removeChild(artiste[0].childNodes[3].childNodes[7]);
         let div = document.createElement('div');
         div.classList.add('main__article__ul');
@@ -125,9 +125,11 @@ function rempliMedia(mediaArtiste){
         img.classList.add('photographers__article__div__figure__img');
         img.classList.add('modal-btn');
         img.setAttribute('id', media.id);
+        img.setAttribute('alt', media.title);
         let video = document.createElement('video');
         video.classList.add('photographers__article__div__figure');
         video.classList.add('video');
+        video.setAttribute('alt', media.title);
         if(media.image !=undefined){
             img.setAttribute('src',`./publics/images/${media.photographerId}/${media.image}`);
             figure.append(img);
