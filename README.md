@@ -4,6 +4,7 @@
 ### Créer une plateforme pour photographe
 Objectif créer une plateforme pour photographe :  
  - Création de la structure HTML-CSS
+ - Respect de <a href="https://www.figma.com/file/pt8xJxC1QffW4HX16QhGZJ/UI-Design-FishEye-FR?node-id=0%3A1" target="_blank">la maquette</a> <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" />
  - Edition des scripts JavaScript
  - Edition d'une <a href="https://jonathanchosson.github.io/JonathanChosson_3_19072021/docs/" target="_blank">documentation JavaScript </a>
  
