@@ -27,6 +27,7 @@ export function gestionModal() {
     contact.forEach(btn => btn.addEventListener("click", function(){launchModal()}));
     closeBtn.forEach((close) => close.addEventListener("click", closeModal));
     closeContact.forEach((close) => close.addEventListener("click", closeModal));
+    document.addEventListener('keydown', (touche) => {if(touche.key === "Escape"){closeModal()}});
 
     /**
      * Rend la modal visible et charge la bonne image suivant ID fournis
