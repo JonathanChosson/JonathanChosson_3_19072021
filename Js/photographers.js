@@ -164,6 +164,7 @@ function rempliMedia(mediaArtiste){
         pLikes.classList.add('photographers__article__div__p--likes');
         // pLikes.classList.add('like');
         pLikes.innerHTML = `${media.likes} <i class="fas fa-heart"></i>`;
+        pLikes.setAttribute('id', media.id);
         divLike.append(pLikes);
         div.append(pTitre);
         // div.append(pLikes);
@@ -237,10 +238,24 @@ function compareDate(a,b){
  */
 function gestionLike(){
     let likes = document.querySelectorAll('.like');
+    let artisteId = window.location.search.split("=")[1];
+    let footer = document.getElementsByClassName('photographers__footer');
+    let ficheArtiste = tableauPhotographe.filter(photographe => photographe.id == artisteId);
     likes.forEach(like => {
         like.addEventListener('click', function(){
+            let mediaChoisi = ficheArtiste[0].media.filter(media => media.id == like.firstChild.id)[0];
+            let countFooter = parseInt(footer[0].firstChild.innerText);
             let count = parseInt(like.innerText);
-            count ++;
+            if(count == mediaChoisi.likes){
+                count ++;
+                countFooter ++;
+                footer[0].firstChild.innerHTML =`${countFooter} <i class="fas fa-heart"></i>`;
+            }else
+            {
+                count--;
+                countFooter --;
+                footer[0].firstChild.innerHTML =`${countFooter} <i class="fas fa-heart"></i>`;
+            }
             like.firstChild.innerHTML = `${count} <i class="fas fa-heart"></i>`;
         })
     });
